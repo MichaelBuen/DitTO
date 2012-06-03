@@ -141,7 +141,7 @@ namespace TestDitTO
 
 
         [TestMethod]
-        public void Test_Live_Poco_To_Dto()
+        public void Test_Live_NH_Poco_To_Dto()
         {
             // Arrange
             
@@ -179,7 +179,7 @@ namespace TestDitTO
         }
 
         [TestMethod]
-        public void Test_Live_Poco_To_Dto_via_EF()
+        public void Test_Live_EF_Poco_To_Dto()
         {
 
             // Arrange
