@@ -243,15 +243,9 @@ namespace Ienablemuch.DitTO
 
     public class PocoMappingException : Exception
     {
-        public PocoMappingException() : this("")
-        {
+        public PocoMappingException() : base(){}
 
-        }
-
-        public PocoMappingException(string message) : base(message)
-        {
-            
-        }
+        public PocoMappingException(string message) : base(message){}
 
         public PocoMappingException(string message, Exception innerException) : base(message, innerException)
         {            
