@@ -71,3 +71,4 @@ insert into Comment(OrderLine_OrderLineID, TheComment) values
 (2,'Nice'),
 (2,'Great');
 
+-- this is just a test
