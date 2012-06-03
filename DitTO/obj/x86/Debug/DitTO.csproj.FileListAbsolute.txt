@@ -1,0 +1,5 @@
+C:\Users\Michael\_CODE\DitTO\DitTO\bin\Debug\DitTO.dll
+C:\Users\Michael\_CODE\DitTO\DitTO\bin\Debug\DitTO.pdb
+C:\Users\Michael\_CODE\DitTO\DitTO\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Michael\_CODE\DitTO\DitTO\obj\x86\Debug\DitTO.dll
+C:\Users\Michael\_CODE\DitTO\DitTO\obj\x86\Debug\DitTO.pdb
