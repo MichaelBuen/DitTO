@@ -11,34 +11,34 @@ namespace Ienablemuch.DitTO
 
     public static class Poco
     {
-        public static TDst ToDto<TDst>(object pocoSource) where TDst : new()
+        public static TDto ToDto<TDto>(object pocoSource) where TDto : new()
         {
-            TDst dst = new TDst();
-            ToDto(pocoSource, dst);
-            return dst;
+            TDto dto = new TDto();
+            ToDto(pocoSource, dto);
+            return dto;
         }
 
 
-        static void ToDto(object src, object dst)
+        static void ToDto(object poco, object dto)
         {                             
-            foreach (PropertyInfo pi in src.GetType().GetProperties())
+            foreach (PropertyInfo pi in poco.GetType().GetProperties())
             {
-                object val = pi.GetValue(src, null);
+                object val = pi.GetValue(poco, null);
                 if (val == null) continue;
 
-                PropertyInfo propDst = dst.GetType().GetProperty(pi.Name, BindingFlags.Public | BindingFlags.Instance);
+                PropertyInfo propDto = dto.GetType().GetProperty(pi.Name, BindingFlags.Public | BindingFlags.Instance);
 
                 // if property is existing
-                if (propDst != null)
+                if (propDto != null)
                 {
                     bool isCollection = pi.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(pi.PropertyType);                    
                     if (!isCollection)
-                        propDst.SetValue(dst, val, null);
+                        propDto.SetValue(dto, val, null);
                     else 
                     {
                         IList srcCollections = ((IList)val);                        
 
-                        Type elemType = propDst.PropertyType.GetGenericArguments()[0];
+                        Type elemType = propDto.PropertyType.GetGenericArguments()[0];
                         IList clonedList = (IList)Common.Create("System.Collections.Generic.List", elemType);                        
 
                         foreach (object item in srcCollections)
@@ -47,13 +47,13 @@ namespace Ienablemuch.DitTO
                             ToDto(item, dtoObject);
                             clonedList.Add(dtoObject);
                         }
-                        propDst.SetValue(dst, clonedList, null);                        
+                        propDto.SetValue(dto, clonedList, null);                        
                     }
                 }
                 else
                 {
                     IEnumerable<PropertyInfo> pocoMatchProperties = 
-                        dst.GetType().GetProperties()
+                        dto.GetType().GetProperties()
                             .Where(x => 
                                 x.GetCustomAttributes(typeof(PocoMappingAttribute),false)
                                 .OfType<PocoMappingAttribute>().Any(y => y.PocoName == pi.Name)
@@ -70,7 +70,7 @@ namespace Ienablemuch.DitTO
                         if (pocoProp == null) throw new PocoMappingException(string.Format("Property {0}.{1} not found for {2}", pi.Name, pm.PropertyName, pi.Name));
 
                         object valx = pocoProp.GetValue(val, null);
-                        item.SetValue(dst, valx, null);                        
+                        item.SetValue(dto, valx, null);                        
                     }//foreach
 
 
@@ -210,6 +210,7 @@ namespace Ienablemuch.DitTO
 
 
     // [System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.Struct )]
+
     public class PocoMappingAttribute : Attribute
     {
         public string PocoName { get; set; }

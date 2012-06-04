@@ -53,6 +53,7 @@ namespace TestDitTO
 
                                .Override<Customer>(x =>
                                    {
+                                       x.References(z => z.Country).Column("Country_CountryId");
                                        x.Id(z => z.CustomerId).GeneratedBy.Identity();
                                    })
                                 .Override<Order>(x =>
@@ -106,7 +107,7 @@ namespace TestDitTO
             IList<Type> _objectsToMap = new List<Type>()
             {
                 // whitelisted objects to map
-                typeof(Order), typeof(OrderLine), typeof(Product), typeof(Comment), typeof(Customer)
+                typeof(Order), typeof(OrderLine), typeof(Product), typeof(Comment), typeof(Customer), typeof(Country)
             };
             public override bool ShouldMap(Type type) { return _objectsToMap.Any(x => x == type); }
             public override bool IsId(FluentNHibernate.Member member) { return member.Name == member.DeclaringType.Name + "Id"; }

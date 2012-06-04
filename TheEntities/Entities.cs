@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Ienablemuch.DitTO;
+using TheEntities.Poco;
+using System.Linq.Expressions;
 
 namespace TheEntities.Poco
 {
 
-    #region Entities
+    public class Country
+    {
+        public virtual int CountryId { get; set; }
+        public virtual string CountryName { get; set; }
+        public virtual string Address1 { get; set; }
+    }
+
 
     public class Customer
     {
         public virtual int CustomerId { get; set; }
         public virtual string CustomerName { get; set; }
+        public virtual Country Country { get; set; }
         public virtual string Address1 { get; set; }
         public virtual int MemberYear { get; set; }
     }
@@ -58,7 +67,6 @@ namespace TheEntities.Poco
         public virtual string TheComment { get; set; }
 	}
 
-    #endregion
 
 
 
@@ -73,13 +81,19 @@ namespace TheEntities.Dto
         public int OrderId { get; set; }
 
         [PocoMapping("Customer", "CustomerId", true)]
-        public int CustomerID { get; set; }
+        public int CustomerId { get; set; }
+
         [PocoMapping("Customer", "CustomerName")]
         public string CustomerName { get; set; }
+
+        
         [PocoMapping("Customer", "Address1")]
         public string Address1 { get; set; }
+
         [PocoMapping("Customer", "MemberYear")]
         public int MemberYear { get; set; }
+
+        public string CountryName { get; set; }
 
         public string OrderDescription { get; set; }
         public DateTime OrderDate { get; set; }
@@ -88,17 +102,18 @@ namespace TheEntities.Dto
         public IList<OrderLineDto> OrderLines{ get; set; }
     }
 
+
     public class OrderLineDto
     {        
         public int OrderLineId { get; set; }
         
         [PocoMapping("Product", "ProductId", true)]
-        public int ProductID { get; set; }
-        [PocoMapping("Product", "ProductName")]
-        public string ProductName { get; set; }
+        public int ProductId { get; set; }
+        [PocoMapping("Product", "ProductDescription")]
+        public string ProductDescription { get; set; }
 
         [PocoMapping("Freebie", "ProductId", true)]
-        public int FreebieID { get; set; }
+        public int FreebieId { get; set; }
 
         public int Quantity { get; set; }
         public decimal Price { get; set; }

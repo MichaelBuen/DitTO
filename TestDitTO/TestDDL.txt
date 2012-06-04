@@ -5,19 +5,28 @@ drop table OrderLine;
 drop table "Order";
 drop table "Product";
 drop table Customer;
+drop table Country;
+
+
+create table Country
+(
+	CountryId int identity(1,1) not null primary key,
+	CountryName varchar(50) not null
+);
 
 create table Customer
 (
-	CustomerID int identity(1,1) not null primary key,
+	CustomerId int identity(1,1) not null primary key,
 	CustomerName varchar(50) not null,
+	Country_CountryId int not null references Country(CountryId),
 	Address1 varchar(50) not null,
 	MemberYear int not null
 );
 
 create table [Order]
 (
-OrderID int identity(1,1) not null primary key,
-Customer_CustomerID int references Customer(CustomerID),
+OrderId int identity(1,1) not null primary key,
+Customer_CustomerId int references Customer(CustomerId),
 OrderDate date not null,
 OrderDescription varchar(100) not null
 
@@ -25,35 +34,38 @@ OrderDescription varchar(100) not null
 
 create table Product
 (
-ProductID int identity(1,1) not null primary key,
+ProductId int identity(1,1) not null primary key,
 ProductName varchar(100) not null,
 ProductDescription varchar(100) not null
 );
 
 create table OrderLine
 (
-Order_OrderID int references [Order](OrderID),
-OrderLineID int identity(1,1) not null primary key,
-Product_ProductID int not null references Product(ProductID),
+Order_OrderId int references [Order](OrderId),
+OrderLineId int identity(1,1) not null primary key,
+Product_ProductId int not null references Product(ProductId),
 Quantity int not null,
 Price numeric(18,4) not null,
 Amount numeric(18,4) not null,
-Freebie_ProductID int references Product(ProductID)
+Freebie_ProductId int references Product(ProductId)
 );
 
 
 create table Comment
 (
-OrderLine_OrderLineID int references OrderLine(OrderLineID),
-CommentID int identity(1,1) not null primary key,
+OrderLine_OrderLineId int references OrderLine(OrderLineId),
+CommentId int identity(1,1) not null primary key,
 TheComment varchar(100) not null
 );
 
 
-insert into Customer(CustomerName,Address1,MemberYear) values
-('Lennon','Makati',1940);
+insert into Country(CountryName) values
+('Philippines');
 
-insert into [Order](Customer_CustomerID,OrderDescription,OrderDate) values
+insert into Customer(CustomerName,Country_CountryId, Address1,MemberYear) values
+('Lennon',1,'Makati',1940);
+
+insert into [Order](Customer_CustomerId,OrderDescription,OrderDate) values
 (1,'Hello','1976-11-05');
 
 
@@ -62,12 +74,12 @@ insert into Product(ProductName, ProductDescription) values
 ('Keyboard','Keyboard');
 
 
-insert into OrderLine(Order_OrderID, Product_ProductID, Quantity, Price, Amount,Freebie_ProductID) values
+insert into OrderLine(Order_OrderId, Product_ProductId, Quantity, Price, Amount,Freebie_ProductId) values
 (1,1,7,6,42,2),
 (1,2,2,3,6,null),
 (1,1,5,10,50,null);
 
-insert into Comment(OrderLine_OrderLineID, TheComment) values
+insert into Comment(OrderLine_OrderLineId, TheComment) values
 (2,'Nice'),
 (2,'Great');
 

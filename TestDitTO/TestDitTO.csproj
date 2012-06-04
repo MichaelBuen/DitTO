@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfDbMapper.cs" />
+    <Compile Include="DtoPocoMappings.cs" />
     <Compile Include="NhDbMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests.cs" />
