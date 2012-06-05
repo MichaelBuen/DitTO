@@ -51,7 +51,9 @@ namespace TestDitTO
 
 
             // Act          
-            var odto = Poco.ToDto<OrderDto>(o);
+            Mapper.FromAssemblyOf<OrderMapping>();
+
+            OrderDto odto = Mapper.ToDto<Order, OrderDto>(o);
 
                         
             // Assert
@@ -63,16 +65,16 @@ namespace TestDitTO
             Assert.IsNotNull(odto.OrderLines);
             Assert.AreEqual(o.OrderLines.Count, odto.OrderLines.Count);
 
-            Assert.AreEqual(o.OrderLines[0].Product.ProductId, odto.OrderLines[0].ProductId);
+            Assert.AreEqual(o.OrderLines[0].Product.ProductId, odto.OrderLines[0].ProductoId);
             Assert.AreEqual(o.OrderLines[0].Product.ProductDescription, odto.OrderLines[0].ProductDescription);
             Assert.AreEqual(o.OrderLines[0].Freebie.ProductId, odto.OrderLines[0].FreebieId);
             Assert.AreEqual(o.OrderLines[0].Quantity, odto.OrderLines[0].Quantity);
             Assert.AreEqual(o.OrderLines[0].Amount, odto.OrderLines[0].Amount);
 
 
-            Assert.IsNotNull(odto.OrderLines[1].Comments);
-            Assert.AreEqual(o.OrderLines[1].Comments.Count, odto.OrderLines[1].Comments.Count);
-            Assert.AreEqual(o.OrderLines[1].Comments[0].TheComment, odto.OrderLines[1].Comments[0].TheComment); 
+            Assert.IsNotNull(odto.OrderLines[1].Koments);
+            Assert.AreEqual(o.OrderLines[1].Comments.Count, odto.OrderLines[1].Koments.Count);
+            Assert.AreEqual(o.OrderLines[1].Comments[0].TheComment, odto.OrderLines[1].Koments[0].TheComment); 
 
             
         }
@@ -90,24 +92,25 @@ namespace TestDitTO
                 CustomerName = "Hey",
                 OrderLines = new[]
                 {
-                    new OrderLineDto { OrderLineId = 7, ProductId = 1, Quantity = 7, Price = 6, Amount = 42 },
+                    new OrderLineDto { OrderLineId = 7, ProductoId = 1, Quantity = 7, Price = 6, Amount = 42 },
                     new OrderLineDto 
                     { 
-                        ProductId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 9,
-                        Comments = new[]
+                        ProductoId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 9,
+                        Koments = new[]
                         {
                             new CommentDto { CommentId = 9, TheComment = "Great" },
                             new CommentDto { TheComment = "Nice" }
                         }
                     },
-                    new OrderLineDto { ProductId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 9 },
+                    new OrderLineDto { ProductoId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 9 },
                 }
             };
 
 
-            // Act 
-            Order oPoco = Dto.ToPoco<Order>(oDto);
+            // Act             
+            Mapper.FromAssemblyOf<OrderMapping>();
 
+            Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
 
             // Assert
             Assert.AreEqual(oDto.OrderId, oPoco.OrderId);
@@ -122,7 +125,7 @@ namespace TestDitTO
             Assert.AreEqual(2, oPoco.OrderLines[1].Comments.Count);
 
             Assert.IsNotNull(oPoco.OrderLines[0].Product);
-            Assert.AreEqual(oDto.OrderLines[0].ProductId, oPoco.OrderLines[0].Product.ProductId);
+            Assert.AreEqual(oDto.OrderLines[0].ProductoId, oPoco.OrderLines[0].Product.ProductId);
             Assert.AreEqual(oDto.OrderLines[0].ProductDescription, oPoco.OrderLines[0].Product.ProductName);
             Assert.AreEqual(oDto.OrderLines[0].Quantity, oPoco.OrderLines[0].Quantity);
             Assert.AreEqual(oDto.OrderLines[0].Price, oPoco.OrderLines[0].Price);
@@ -130,11 +133,11 @@ namespace TestDitTO
 
             Assert.AreEqual(oDto.OrderLines[1].FreebieId, oPoco.OrderLines[1].Freebie.ProductId);
 
-            Assert.AreEqual(oDto.OrderLines[1].Comments[0].CommentId, oPoco.OrderLines[1].Comments[0].CommentId);
-            Assert.AreEqual(oDto.OrderLines[1].Comments[0].TheComment, oPoco.OrderLines[1].Comments[0].TheComment);
+            Assert.AreEqual(oDto.OrderLines[1].Koments[0].CommentId, oPoco.OrderLines[1].Comments[0].CommentId);
+            Assert.AreEqual(oDto.OrderLines[1].Koments[0].TheComment, oPoco.OrderLines[1].Comments[0].TheComment);
 
             Assert.AreEqual(oPoco.OrderLines[1].Comments[1].CommentId, oPoco.OrderLines[1].Comments[1].CommentId);
-            Assert.AreEqual(oDto.OrderLines[1].Comments[1].TheComment, oPoco.OrderLines[1].Comments[1].TheComment);
+            Assert.AreEqual(oDto.OrderLines[1].Koments[1].TheComment, oPoco.OrderLines[1].Comments[1].TheComment);
             
 
         }
@@ -156,24 +159,26 @@ namespace TestDitTO
 
 
             // Assert
-            var oDto = Poco.ToDto<OrderDto>(o);
+            Mapper.FromAssemblyOf<OrderMapping>();
+            // var oDto = Poco.ToDto<OrderDto>(o);
+            OrderDto oDto = Mapper.ToDto<Order, OrderDto>(o);
 
             Assert.AreEqual("Hello", oDto.OrderDescription);
             Assert.AreEqual(new DateTime(1976, 11, 5), oDto.OrderDate);
             Assert.AreEqual(3, oDto.OrderLines.Count);
 
-            Assert.AreEqual(1, oDto.OrderLines[0].ProductId);
+            Assert.AreEqual(1, oDto.OrderLines[0].ProductoId);
             Assert.AreEqual(2, oDto.OrderLines[0].FreebieId);
             Assert.AreEqual("Mouse", oDto.OrderLines[0].ProductDescription);
-            Assert.AreEqual(2, oDto.OrderLines[1].ProductId);
+            Assert.AreEqual(2, oDto.OrderLines[1].ProductoId);
             Assert.AreEqual(0, oDto.OrderLines[1].FreebieId);
             Assert.AreEqual("Keyboard", oDto.OrderLines[1].ProductDescription);
-            Assert.AreEqual(1, oDto.OrderLines[2].ProductId);
+            Assert.AreEqual(1, oDto.OrderLines[2].ProductoId);
             Assert.AreEqual("Mouse", oDto.OrderLines[2].ProductDescription);
 
-            Assert.AreEqual(2, oDto.OrderLines[1].Comments.Count);
-            Assert.AreEqual("Nice", oDto.OrderLines[1].Comments[0].TheComment);
-            Assert.AreEqual("Great", oDto.OrderLines[1].Comments[1].TheComment);
+            Assert.AreEqual(2, oDto.OrderLines[1].Koments.Count);
+            Assert.AreEqual("Nice", oDto.OrderLines[1].Koments[0].TheComment);
+            Assert.AreEqual("Great", oDto.OrderLines[1].Koments[1].TheComment);
             // Assert.AreEqual("Hello", o.OrderDescription);
 
         }
@@ -196,25 +201,27 @@ namespace TestDitTO
             
 
 
-            // Assert
-            var odto = Poco.ToDto<OrderDto>(o);
+            // Assert            
+            Mapper.FromAssemblyOf<OrderMapping>();
+
+            OrderDto odto = Mapper.ToDto<Order, OrderDto>(o);
 
             Assert.AreEqual("Hello", odto.OrderDescription);
             Assert.AreEqual(new DateTime(1976, 11, 5), odto.OrderDate);
             Assert.AreEqual(3, odto.OrderLines.Count);
 
-            Assert.AreEqual(1, odto.OrderLines[0].ProductId);
+            Assert.AreEqual(1, odto.OrderLines[0].ProductoId);
             Assert.AreEqual(2, odto.OrderLines[0].FreebieId);
             Assert.AreEqual("Mouse", odto.OrderLines[0].ProductDescription);
-            Assert.AreEqual(2, odto.OrderLines[1].ProductId);
+            Assert.AreEqual(2, odto.OrderLines[1].ProductoId);
             Assert.AreEqual(0, odto.OrderLines[1].FreebieId);
             Assert.AreEqual("Keyboard", odto.OrderLines[1].ProductDescription);
-            Assert.AreEqual(1, odto.OrderLines[2].ProductId);
+            Assert.AreEqual(1, odto.OrderLines[2].ProductoId);
             Assert.AreEqual("Mouse", odto.OrderLines[2].ProductDescription);
 
-            Assert.AreEqual(2, odto.OrderLines[1].Comments.Count);
-            Assert.AreEqual("Nice", odto.OrderLines[1].Comments[0].TheComment);
-            Assert.AreEqual("Great", odto.OrderLines[1].Comments[1].TheComment);
+            Assert.AreEqual(2, odto.OrderLines[1].Koments.Count);
+            Assert.AreEqual("Nice", odto.OrderLines[1].Koments[0].TheComment);
+            Assert.AreEqual("Great", odto.OrderLines[1].Koments[1].TheComment);
 
         }
 
@@ -234,24 +241,27 @@ namespace TestDitTO
                 CustomerName = "Hey",
                 OrderLines = new[]
                 {
-                    new OrderLineDto { ProductId = 1, Quantity = 7, Price = 6, Amount = 42 },
+                    new OrderLineDto { ProductoId = 1, Quantity = 7, Price = 6, Amount = 42 },
                     new OrderLineDto 
                     { 
-                        ProductId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 1,
-                        Comments = new[]
+                        ProductoId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 1,
+                        Koments = new[]
                         {
                             new CommentDto { TheComment = "Great" },
                             new CommentDto { TheComment = "Nice" }
                         }
                     },
-                    new OrderLineDto { ProductId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 2 },
+                    new OrderLineDto { ProductoId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 2 },
                 }
             };
 
           
 
             // Act
-            var oPoco = Dto.ToPoco<Order>(oDto);
+            
+            Mapper.FromAssemblyOf<OrderMapping>();
+
+            Order oPoco = Mapper.ToPoco<OrderDto,Order>(oDto);
 
             Order o;
             using (ISession s = NhDbMapper.GetSession(connectionString))
@@ -284,17 +294,17 @@ namespace TestDitTO
                 CustomerName = "Hey",
                 OrderLines = new[]
                 {
-                    new OrderLineDto { ProductId = 1, Quantity = 7, Price = 6, Amount = 42 },
+                    new OrderLineDto { ProductoId = 1, Quantity = 7, Price = 6, Amount = 42 },
                     new OrderLineDto 
                     { 
-                        ProductId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 1,
-                        Comments = new[]
+                        ProductoId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 1,
+                        Koments = new[]
                         {
-                            new CommentDto { TheComment = "Great" },
-                            new CommentDto { TheComment = "Nice" }
+                            new CommentDto { TheComment = "Lovely" },
+                            new CommentDto { TheComment = "View" }
                         }
                     },
-                    new OrderLineDto { ProductId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 2 },
+                    new OrderLineDto { ProductoId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 2 },
                 }
             };
 
@@ -302,12 +312,14 @@ namespace TestDitTO
 
             // Act
 
+            Mapper.FromAssemblyOf<OrderMapping>();
 
-
-            Order oPoco = Dto.ToPoco<Order>(oDto);
+            Order oPoco = Mapper.ToPoco<OrderDto,Order>(oDto);
 
             var db = new EfDbMapper(connectionString);
-            EfPoco.AssignStub<OrderDto>(oPoco, db);
+            // EfPoco.AssignStub<OrderDto>(oPoco, db);
+
+            EfPoco.AssignStub(oPoco, db);
 
             var repoOrder = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Order>(db);
             repoOrder.Merge(oPoco, null);
@@ -322,7 +334,7 @@ namespace TestDitTO
 
 
         [TestMethod]
-        public void Test_StronglyTyped_Mapper_for_Dto_Poco() 
+        public void Test_Strongly_typed_Mapper_for_Poco_to_Dto() 
         {
             const string cOrderDescription = "Hello";
             const int cOrderId = 88;
@@ -382,21 +394,87 @@ namespace TestDitTO
             Assert.AreNotSame(oPoco.OrderLines, oDto.OrderLines);
             Assert.AreEqual(oPoco.OrderLines.Count, oDto.OrderLines.Count);
 
-            Assert.AreEqual(oPoco.OrderLines[0].Product.ProductId, oDto.OrderLines[0].ProductId);
+            Assert.AreEqual(oPoco.OrderLines[0].Product.ProductId, oDto.OrderLines[0].ProductoId);
             Assert.AreEqual(oPoco.OrderLines[0].Product.ProductDescription, oDto.OrderLines[0].ProductDescription);
             Assert.AreEqual(oPoco.OrderLines[0].Freebie.ProductId, oDto.OrderLines[0].FreebieId);
             Assert.AreEqual(oPoco.OrderLines[0].Quantity, oDto.OrderLines[0].Quantity);
             Assert.AreEqual(oPoco.OrderLines[0].Amount, oDto.OrderLines[0].Amount);
 
 
-            Assert.AreNotSame(oPoco.OrderLines[1].Comments, oDto.OrderLines[1].Comments);
-            Assert.IsNotNull(oDto.OrderLines[1].Comments);
-            Assert.AreEqual(oPoco.OrderLines[1].Comments.Count, oDto.OrderLines[1].Comments.Count);
-            Assert.AreEqual(oPoco.OrderLines[1].Comments[0].TheComment, oDto.OrderLines[1].Comments[0].TheComment); 
+            Assert.AreNotSame(oPoco.OrderLines[1].Comments, oDto.OrderLines[1].Koments);
+            Assert.IsNotNull(oDto.OrderLines[1].Koments);
+            Assert.AreEqual(oPoco.OrderLines[1].Comments.Count, oDto.OrderLines[1].Koments.Count);
+            Assert.AreEqual(oPoco.OrderLines[1].Comments[0].TheComment, oDto.OrderLines[1].Koments[0].TheComment); 
 
             
 
         }
+
+
+        [TestMethod]
+        public void Test_Strongly_typed_mapper_for_Dto_To_Poco()
+        {
+            // Arrange
+            OrderDto oDto = new OrderDto
+            {
+                OrderId = 76,
+                OrderDate = new DateTime(2012, 07, 22),
+                OrderDescription = "Hey Apple!",
+                CustomerId = 5201314,
+                CustomerName = "Hey",
+                OrderLines = new[]
+                {
+                    new OrderLineDto { OrderLineId = 7, ProductoId = 1, Quantity = 7, Price = 6, Amount = 42 },
+                    new OrderLineDto 
+                    { 
+                        ProductoId = 2, Quantity = 3, Price = 6, Amount = 18, FreebieId = 9,
+                        Koments = new[]
+                        {
+                            new CommentDto { CommentId = 9, TheComment = "Great" },
+                            new CommentDto { TheComment = "Nice" }
+                        }
+                    },
+                    new OrderLineDto { ProductoId = 1, Quantity = 4, Price = 5, Amount = 20, FreebieId = 9 },
+                }
+            };
+
+
+            // Act 
+            Mapper.FromAssemblyOf<OrderMapping>();
+
+            Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
+
+
+            // Assert
+            Assert.AreEqual(oDto.OrderId, oPoco.OrderId);
+            Assert.AreEqual(oDto.CustomerId, oPoco.Customer.CustomerId);
+            Assert.AreEqual(oDto.OrderDate, oPoco.OrderDate);
+
+            Assert.AreEqual(oDto.OrderDescription, oPoco.OrderDescription);
+            Assert.AreEqual(3, oPoco.OrderLines.Count);
+
+            Assert.IsNotNull(oPoco.OrderLines[0].Order);
+            Assert.ReferenceEquals(oPoco, oPoco.OrderLines[0].Order);
+            Assert.AreEqual(2, oPoco.OrderLines[1].Comments.Count);
+
+            Assert.IsNotNull(oPoco.OrderLines[0].Product);
+            Assert.AreEqual(oDto.OrderLines[0].ProductoId, oPoco.OrderLines[0].Product.ProductId);
+            Assert.AreEqual(oDto.OrderLines[0].ProductDescription, oPoco.OrderLines[0].Product.ProductName);
+            Assert.AreEqual(oDto.OrderLines[0].Quantity, oPoco.OrderLines[0].Quantity);
+            Assert.AreEqual(oDto.OrderLines[0].Price, oPoco.OrderLines[0].Price);
+            Assert.AreEqual(oDto.OrderLines[0].Amount, oPoco.OrderLines[0].Amount);
+
+            Assert.AreEqual(oDto.OrderLines[1].FreebieId, oPoco.OrderLines[1].Freebie.ProductId);
+
+            Assert.AreEqual(oDto.OrderLines[1].Koments[0].CommentId, oPoco.OrderLines[1].Comments[0].CommentId);
+            Assert.AreEqual(oDto.OrderLines[1].Koments[0].TheComment, oPoco.OrderLines[1].Comments[0].TheComment);
+
+            Assert.AreEqual(oPoco.OrderLines[1].Comments[1].CommentId, oPoco.OrderLines[1].Comments[1].CommentId);
+            Assert.AreEqual(oDto.OrderLines[1].Koments[1].TheComment, oPoco.OrderLines[1].Comments[1].TheComment);
+
+
+        }
+
 
 
     }

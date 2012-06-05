@@ -12,8 +12,7 @@ namespace TheEntities.Poco
     public class Country
     {
         public virtual int CountryId { get; set; }
-        public virtual string CountryName { get; set; }
-        public virtual string Address1 { get; set; }
+        public virtual string CountryName { get; set; }       
     }
 
 
@@ -80,17 +79,17 @@ namespace TheEntities.Dto
     {
         public int OrderId { get; set; }
 
-        [PocoMapping("Customer", "CustomerId", true)]
+        
         public int CustomerId { get; set; }
 
-        [PocoMapping("Customer", "CustomerName")]
+        
         public string CustomerName { get; set; }
 
         
-        [PocoMapping("Customer", "Address1")]
+        
         public string Address1 { get; set; }
 
-        [PocoMapping("Customer", "MemberYear")]
+        
         public int MemberYear { get; set; }
 
         public string CountryName { get; set; }
@@ -98,7 +97,7 @@ namespace TheEntities.Dto
         public string OrderDescription { get; set; }
         public DateTime OrderDate { get; set; }
 
-        [PocoCollectionLink("Order")]
+        
         public IList<OrderLineDto> OrderLines{ get; set; }
     }
 
@@ -107,20 +106,20 @@ namespace TheEntities.Dto
     {        
         public int OrderLineId { get; set; }
         
-        [PocoMapping("Product", "ProductId", true)]
-        public int ProductId { get; set; }
-        [PocoMapping("Product", "ProductDescription")]
+        
+        public int ProductoId { get; set; }
+        
         public string ProductDescription { get; set; }
 
-        [PocoMapping("Freebie", "ProductId", true)]
+        
         public int FreebieId { get; set; }
 
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public decimal Amount{ get; set; }
 
-        [PocoCollectionLink("OrderLine")]
-        public IList<CommentDto> Comments { get; set; }
+        
+        public IList<CommentDto> Koments { get; set; }
     }
 
 

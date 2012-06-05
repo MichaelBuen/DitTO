@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestRun id="8e10f2f6-2acb-4e62-9d06-8c46e8c28fdc" name="Michael@MICHAEL-PC 2012-06-04 16:42:40" runUser="Michael-PC\Michael" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestRun id="be50c405-7eb1-4809-b45b-5ca31067f384" name="Michael@MICHAEL-PC 2012-06-05 15:03:37" runUser="Michael-PC\Michael" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <TestSettings name="Local" id="397f7128-1790-459c-a965-4142d4897709">
     <Description>These are default test settings for a local test run.</Description>
-    <Deployment userDeploymentRoot="C:\Users\Michael\_CODE\DitTO\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Michael_MICHAEL-PC 2012-06-04 16_42_40">
+    <Deployment enabled="false" runDeploymentRoot="Michael_MICHAEL-PC 2012-06-05 15_03_37">
       <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" />
       <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll" />
       <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll" />
@@ -20,14 +20,14 @@
       </AgentRule>
     </Execution>
   </TestSettings>
-  <Times creation="2012-06-04T16:42:40.3510000+08:00" queuing="2012-06-04T16:42:40.4080000+08:00" start="2012-06-04T16:42:40.4280000+08:00" finish="2012-06-04T16:42:41.1860000+08:00" />
+  <Times creation="2012-06-05T15:03:37.0440000+08:00" queuing="2012-06-05T15:03:37.1000000+08:00" start="2012-06-05T15:03:37.1230000+08:00" finish="2012-06-05T15:03:38.7210000+08:00" />
   <ResultSummary outcome="Completed">
     <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
   <TestDefinitions>
-    <UnitTest name="Test_Dto_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="e727b5e9-fe4e-2736-4047-64086eb6bb19">
-      <Execution id="ac4420b5-2768-411c-91cc-b48a51a9033f" />
-      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_Poco" />
+    <UnitTest name="Test_Dto_To_Live_Ef_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="03a77bf7-0d03-4582-234d-239776031b7e">
+      <Execution id="66a048a1-58c4-4897-9f57-21b371bc0c77" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Live_Ef_Poco" />
     </UnitTest>
   </TestDefinitions>
   <TestLists>
@@ -35,10 +35,10 @@
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <TestEntries>
-    <TestEntry testId="e727b5e9-fe4e-2736-4047-64086eb6bb19" executionId="ac4420b5-2768-411c-91cc-b48a51a9033f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03a77bf7-0d03-4582-234d-239776031b7e" executionId="66a048a1-58c4-4897-9f57-21b371bc0c77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <Results>
-    <UnitTestResult executionId="ac4420b5-2768-411c-91cc-b48a51a9033f" testId="e727b5e9-fe4e-2736-4047-64086eb6bb19" testName="Test_Dto_Poco" computerName="MICHAEL-PC" duration="00:00:00.0414066" startTime="2012-06-04T16:42:40.4520000+08:00" endTime="2012-06-04T16:42:40.7440000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac4420b5-2768-411c-91cc-b48a51a9033f">
+    <UnitTestResult executionId="66a048a1-58c4-4897-9f57-21b371bc0c77" testId="03a77bf7-0d03-4582-234d-239776031b7e" testName="Test_Dto_To_Live_Ef_Poco" computerName="MICHAEL-PC" duration="00:00:01.1877808" startTime="2012-06-05T15:03:37.1390000+08:00" endTime="2012-06-05T15:03:38.5970000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="66a048a1-58c4-4897-9f57-21b371bc0c77">
     </UnitTestResult>
   </Results>
 </TestRun>

@@ -12,6 +12,67 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
 {
     public static class EfPoco
     {
+        public static void AssignStub(object poco, DbContext db) 
+        {
+            AssignStubx(poco, db);
+        }
+
+        internal static void AssignStubx(object poco, DbContext db)
+        {
+            IEnumerable<PropertyMapping> piNeedStub = Mapper.StubsNeeded(poco.GetType());
+            
+
+            foreach (PropertyMapping pm in piNeedStub)
+            {
+                // pm.PropertyPoco.First().   e.g. Customer of Customer.CustomerId.    Customer is PropertyPoco[0], CustomerId is PropertyPoco[1]
+                PropertyInfo pocoForeign = poco.GetType().GetProperty(pm.PropertyPoco[0], BindingFlags.Public | BindingFlags.Instance);
+                if (pocoForeign == null) continue;
+
+
+                object val = pocoForeign.GetValue(poco, null);
+                // foreign key nullable
+                if (val == null) continue;
+
+
+
+                PropertyInfo pocoForeignId = pocoForeign.PropertyType.GetProperty(pm.PropertyPoco.Last(), BindingFlags.Public | BindingFlags.Instance);
+
+                object id = pocoForeignId.GetValue(val, null);
+
+                pocoForeign.SetValue(poco, LoadStub(pocoForeign.PropertyType, pm.PropertyPoco.Last(), id, db), null);
+                
+            }
+
+
+            IEnumerable<PropertyInfo> piCollection =
+                poco.GetType().GetProperties()
+                .Where(x => x.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(x.PropertyType));
+
+
+            foreach (PropertyInfo item in piCollection)
+            {
+                PropertyInfo px = poco.GetType().GetProperty(item.Name, BindingFlags.Public | BindingFlags.Instance);
+
+                // same property exists from dto to poco
+                if (px != null)
+                {
+                    IList col = (IList)px.GetValue(poco, null);
+                    if (col == null) continue;
+
+                    Type dtoType = item.PropertyType.GetInterfaces().Where(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>)).Single().GetGenericArguments()[0];
+
+                    foreach (object elem in col)
+                    {
+                        AssignStub(elem, db);
+                    }
+
+                }
+            }
+
+        }//AssignStub
+
+
+        /*
         public static void AssignStub<TDto>(object poco, DbContext db) where TDto : new()
         {
             // TDto x = new TDto();
@@ -22,35 +83,27 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
         }
 
         internal static void AssignStub(Type dtoPattern, object poco, DbContext db)
-        {
-            IEnumerable<PropertyInfo> piNeedStub =
-                dtoPattern.GetProperties()
-                .Where(x =>
-                    x.GetCustomAttributes(typeof(PocoMappingAttribute), false)
-                    .OfType<PocoMappingAttribute>()
-                    .Any(z => z.IsReference)
-                 );
-                 
+        {            
+            IEnumerable<PropertyMapping> piNeedStub = Mapper.StubsNeeded(dtoPattern);
 
-            foreach (PropertyInfo item in piNeedStub)
+            foreach (PropertyMapping pm in piNeedStub)
             {
-                PocoMappingAttribute pm = item.GetCustomAttributes(typeof(PocoMappingAttribute),false).OfType<PocoMappingAttribute>().Single();
-
-                PropertyInfo px = poco.GetType().GetProperty(pm.PocoName, BindingFlags.Public | BindingFlags.Instance);
-                if (px == null) continue;
+                // pm.PropertyPoco.First().   e.g. Customer of Customer.CustomerId.    Customer is PropertyPoco[0], CustomerId is PropertyPoco[1]
+                PropertyInfo pocoForeign = poco.GetType().GetProperty(pm.PropertyPoco[0], BindingFlags.Public | BindingFlags.Instance);
+                if (pocoForeign == null) continue;
                
                 
-                object val = px.GetValue(poco, null);
+                object val = pocoForeign.GetValue(poco, null);
                 // foreign key nullable
                 if (val == null) continue;
 
 
+                
+                PropertyInfo pocoForeignId = pocoForeign.PropertyType.GetProperty(pm.PropertyPoco.Last(), BindingFlags.Public | BindingFlags.Instance);
 
-                PropertyInfo pxProp = val.GetType().GetProperty(pm.PropertyName, BindingFlags.Public | BindingFlags.Instance);
+                object id = pocoForeignId.GetValue(val, null);
 
-                object id = pxProp.GetValue(val, null);
-
-                px.SetValue(poco, LoadStub(px.PropertyType, pm.PropertyName, id, db), null);               
+                pocoForeign.SetValue(poco, LoadStub(pocoForeign.PropertyType, pm.PropertyPoco.Last(), id, db), null);               
             }
 
 
@@ -72,8 +125,7 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
                     Type dtoType = item.PropertyType.GetInterfaces().Where(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>)).Single().GetGenericArguments()[0];
 
                     foreach (object elem in col)
-                    {
-                        //throw new Exception(dtoType.ToString());                        
+                    {                                              
                         AssignStub(dtoType, elem, db);
                     }
 
@@ -81,7 +133,7 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
             }
 
         }//AssignStub
-
+        */
 
         internal static object LoadStub(Type t, string primaryKeyName, object id, DbContext db)
         {

@@ -16,11 +16,11 @@ namespace TestDitTO
             Map(x => x.CustomerName, y => y.Customer.CustomerName);
             // Map(x => x.CustomerName, y => y.OrderDescription);
 
-            Map(x => x.CustomerId, y => y.Customer.CustomerId);
+            MapKey(x => x.CustomerId, y => y.Customer.CustomerId);
             Map(x => x.Address1, y => y.Customer.Address1);
             Map(x => x.CountryName, y => y.Customer.Country.CountryName);
 
-            // MapCollectionLink(x => x.OrderLines, x => x.OrderLines, z => z.Order);
+            MapCollectionLink(x => x.OrderLines, x => x.OrderLines, z => z.Order);
         }
     }
 
@@ -28,9 +28,12 @@ namespace TestDitTO
     {
         public override void Mapping()
         {
-            MapKey(d => d.ProductId, s => s.Product.ProductId);
+            MapKey(d => d.ProductoId, s => s.Product.ProductId);
             Map(d => d.ProductDescription, s => s.Product.ProductDescription);
             MapKey(d => d.FreebieId, s => s.Freebie.ProductId);
+
+            MapCollectionLink(d => d.Koments, s => s.Comments, r => r.OrderLine);
+            
         }
     }
 
