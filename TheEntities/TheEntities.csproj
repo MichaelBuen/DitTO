@@ -43,12 +43,6 @@
     <Compile Include="Entities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DitTO\Ienablemuch.DitTO.csproj">
-      <Project>{D4B4F2E3-EA4D-4B06-971B-7805300280B7}</Project>
-      <Name>Ienablemuch.DitTO</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -477,6 +477,7 @@ namespace TestDitTO
                     .SelectMany(x => x.Customer.Country.Languages).Count();
             var langs = s.Query<Order>().Where(x => x.OrderId == 1).SelectMany(x => x.Customer.Country.Languages).OrderBy(x => x.LanguageName);
 
+
             // Assert
             Assert.AreEqual(2, c);
             Assert.AreEqual("English", langs.ToArray()[0].LanguageName);

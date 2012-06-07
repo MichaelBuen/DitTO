@@ -3,5 +3,3 @@ C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Debug\TheEntities.pdb
 C:\Users\Michael\_CODE\DitTO\TheEntities\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\_CODE\DitTO\TheEntities\obj\Debug\TheEntities.dll
 C:\Users\Michael\_CODE\DitTO\TheEntities\obj\Debug\TheEntities.pdb
-C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Debug\Ienablemuch.DitTO.dll
-C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Debug\Ienablemuch.DitTO.pdb

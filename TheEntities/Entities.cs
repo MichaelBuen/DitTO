@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ienablemuch.DitTO;
-using TheEntities.Poco;
 using System.Linq.Expressions;
 
 namespace TheEntities.Poco
@@ -86,7 +84,8 @@ namespace TheEntities.Poco
 
 
 namespace TheEntities.Dto
-{
+{    
+
     public class OrderDto
     {
         public int OrderId { get; set; }
@@ -94,7 +93,7 @@ namespace TheEntities.Dto
         
         public int CustomerId { get; set; }
 
-        public IList<Language> PossibleLanguages{ get; set; }
+        public IList<TheEntities.Poco.Language> PossibleLanguages{ get; set; }
 
         
         public string CustomerName { get; set; }
