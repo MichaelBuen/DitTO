@@ -12,8 +12,20 @@ namespace TheEntities.Poco
     public class Country
     {
         public virtual int CountryId { get; set; }
-        public virtual string CountryName { get; set; }       
+        public virtual string CountryName { get; set; }
+
+        public virtual IList<Language> Languages { get; set; }
     }
+
+
+    public class Language
+    {
+        public virtual int LanguageId { get; set; }
+        public virtual string LanguageName { get; set; }
+
+        public virtual IList<Country> Countries { get; set; }
+    }
+
 
 
     public class Customer
@@ -81,6 +93,8 @@ namespace TheEntities.Dto
 
         
         public int CustomerId { get; set; }
+
+        public IList<Language> PossibleLanguages{ get; set; }
 
         
         public string CustomerName { get; set; }

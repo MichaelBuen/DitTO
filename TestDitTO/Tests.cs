@@ -21,6 +21,11 @@ namespace TestDitTO
     {
         const string connectionString = "Data Source=localhost; Initial Catalog=ObjectGraphDitTO; User id=sa; Password=P@$$w0rd";
 
+        public Tests()
+        {
+            Mapper.FromAssemblyOf<OrderMapping>();
+        }
+
         [TestMethod]
         public void Test_Poco_To_Dto()
         {
@@ -51,8 +56,6 @@ namespace TestDitTO
 
 
             // Act          
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             OrderDto odto = Mapper.ToDto<Order, OrderDto>(o);
 
                         
@@ -108,8 +111,6 @@ namespace TestDitTO
 
 
             // Act             
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
 
             // Assert
@@ -159,8 +160,6 @@ namespace TestDitTO
 
 
             // Assert
-            Mapper.FromAssemblyOf<OrderMapping>();
-            // var oDto = Poco.ToDto<OrderDto>(o);
             OrderDto oDto = Mapper.ToDto<Order, OrderDto>(o);
 
             Assert.AreEqual("Hello", oDto.OrderDescription);
@@ -202,8 +201,6 @@ namespace TestDitTO
 
 
             // Assert            
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             OrderDto odto = Mapper.ToDto<Order, OrderDto>(o);
 
             Assert.AreEqual("Hello", odto.OrderDescription);
@@ -258,9 +255,6 @@ namespace TestDitTO
           
 
             // Act
-            
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             Order oPoco = Mapper.ToPoco<OrderDto,Order>(oDto);
 
             Order o;
@@ -311,15 +305,13 @@ namespace TestDitTO
 
 
             // Act
-
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             Order oPoco = Mapper.ToPoco<OrderDto,Order>(oDto);
 
             var db = new EfDbMapper(connectionString);
             // EfPoco.AssignStub<OrderDto>(oPoco, db);
+            
+            db.AssignStub(oPoco);
 
-            EfPoco.AssignStub(oPoco, db);
 
             var repoOrder = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Order>(db);
             repoOrder.Merge(oPoco, null);
@@ -371,8 +363,6 @@ namespace TestDitTO
             var x = new OrderLineMapping();            
             var odto = new OrderMapping().ToDto(o);
             */
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             OrderDto oDto = Mapper.ToDto<Order,OrderDto>(oPoco);
 
 
@@ -440,8 +430,6 @@ namespace TestDitTO
 
 
             // Act 
-            Mapper.FromAssemblyOf<OrderMapping>();
-
             Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
 
 
@@ -475,6 +463,311 @@ namespace TestDitTO
 
         }
 
+
+
+        [TestMethod]
+        public void Test_Live_NH_Language_Country()
+        {
+            // Arrange
+            ISession s = NhDbMapper.GetSession(connectionString);
+
+
+            // Act
+            int c = s.Query<Order>().Where(x => x.OrderId == 1)
+                    .SelectMany(x => x.Customer.Country.Languages).Count();
+            var langs = s.Query<Order>().Where(x => x.OrderId == 1).SelectMany(x => x.Customer.Country.Languages).OrderBy(x => x.LanguageName);
+
+            // Assert
+            Assert.AreEqual(2, c);
+            Assert.AreEqual("English", langs.ToArray()[0].LanguageName);
+            Assert.AreEqual("Tagalog", langs.ToArray()[1].LanguageName);
+        }
+
+        [TestMethod]
+        public void Test_Live_Ef_Language_Country()
+        {
+            
+
+            // Arrange            
+            var db = new EfDbMapper(connectionString);
+
+            // Act
+            int c = db.Set<Order>().Where(x => x.OrderId == 1)
+                    .SelectMany(x => x.Customer.Country.Languages).Count();
+
+            var langs = db.Set<Order>().Where(x => x.OrderId == 1).SelectMany(x => x.Customer.Country.Languages).OrderBy(x => x.LanguageName);
+
+            // Assert
+            Assert.AreEqual(2, c);
+            Assert.AreEqual("English", langs.ToArray()[0].LanguageName);
+            Assert.AreEqual("Tagalog", langs.ToArray()[1].LanguageName);
+
+        }
+
+
+        [TestMethod]
+        public void Test_Live_Ef_Language_Country_Poco_to_Dto()
+        {
+            // Arrange            
+            var db = new EfDbMapper(connectionString);
+                
+            // Act
+            int c = db.Set<Order>().Where(x => x.OrderId == 1)
+                    .SelectMany(x => x.Customer.Country.Languages).Count();
+
+            var langs = db.Set<Order>().Where(x => x.OrderId == 1).SelectMany(x => x.Customer.Country.Languages).OrderBy(x => x.LanguageName);
+
+            Order oPoco = db.Set<Order>().Single(x => x.OrderId == 1);
+            OrderDto oDto = Mapper.ToDto<Order,OrderDto>(oPoco);
+            Assert.AreEqual(2, oPoco.Customer.Country.Languages.Count());
+            Assert.IsNotNull(oDto);
+            Assert.IsNotNull(oDto.PossibleLanguages);
+            var dtoLang = oDto.PossibleLanguages.OrderBy(x => x.LanguageName).ToArray();
+            
+
+
+            // Assert
+            Assert.AreEqual(2, c);
+            Assert.AreEqual("English", langs.ToArray()[0].LanguageName);
+            Assert.AreEqual("Tagalog", langs.ToArray()[1].LanguageName);
+
+            Assert.AreNotSame(oPoco.Customer.Country.Languages, oDto.PossibleLanguages);
+            Assert.AreEqual("English", dtoLang[0].LanguageName);
+            Assert.AreEqual("Tagalog", dtoLang[1].LanguageName);
+            
+
+        }
+
+
+        [TestMethod]
+        public void Test_Live_Nh_Language_Country_Poco_to_Dto()
+        {
+            // Arrange            
+            var db = NhDbMapper.GetSession(connectionString);
+
+            // Act
+            int c = db.Query<Order>().Where(x => x.OrderId == 1)
+                    .SelectMany(x => x.Customer.Country.Languages).Count();
+
+            var langs = db.Query<Order>().Where(x => x.OrderId == 1).SelectMany(x => x.Customer.Country.Languages).OrderBy(x => x.LanguageName);
+
+            Order oPoco = db.Query<Order>().Single(x => x.OrderId == 1);
+            OrderDto oDto = Mapper.ToDto<Order, OrderDto>(oPoco);
+            Assert.AreEqual(2, oPoco.Customer.Country.Languages.Count());
+            Assert.IsNotNull(oDto);
+            Assert.IsNotNull(oDto.PossibleLanguages);
+            var dtoLang = oDto.PossibleLanguages.OrderBy(x => x.LanguageName).ToArray();
+
+
+
+            // Assert
+            Assert.AreEqual(2, c);
+            Assert.AreEqual("English", langs.ToArray()[0].LanguageName);
+            Assert.AreEqual("Tagalog", langs.ToArray()[1].LanguageName);
+
+            Assert.AreNotSame(oPoco.Customer.Country.Languages, oDto.PossibleLanguages);
+            Assert.AreEqual("English", dtoLang[0].LanguageName);
+            Assert.AreEqual("Tagalog", dtoLang[1].LanguageName);
+
+            
+            
+
+
+        }
+
+        [TestMethod]
+        public void Test_nested()
+        {
+
+            // Arrange
+
+            int customerId = 1;
+
+            OrderDto oDto = new OrderDto
+            {
+                CustomerId = customerId,
+                CustomerName = "Michael",
+                OrderDescription = "Superb"
+            };
+
+            // Act
+            Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
+
+            // Assert            
+            Assert.AreNotSame(oDto, oPoco);
+            Assert.IsNotNull(oPoco.Customer);            
+            Assert.AreEqual(customerId,oPoco.Customer.CustomerId);
+
+            // Even we have a Customer object. it's just a stub object. Expect other properties to be null or zero, i.e. in their default value
+            Assert.IsNull(oPoco.Customer.CustomerName);
+
+            Assert.IsNull(oPoco.Customer.Country);
+        }
+
+
+        [TestMethod]
+        public void Test_nested_Live_Nh_Dto_to_Poco()
+        {            
+            
+
+            int customerId = 1;
+
+            // Arrange
+            OrderDto oDto = new OrderDto
+            {
+                CustomerId = customerId,
+                CustomerName = "Miguel",
+                OrderDescription = "Superb",
+                OrderDate = new DateTime(2076,11,05),
+                OrderLines = new[] 
+                { 
+                    new OrderLineDto { ProductoId = 1, Quantity = 8, Price = 6, Amount = 48 },
+                    new OrderLineDto { ProductoId = 2, Quantity = 3, Price = 6, Amount = 18 }
+                }
+            };
+
+            // Act
+            Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
+
+            
+            // Assert            
+            Assert.AreNotSame(oDto, oPoco);
+            Assert.IsNotNull(oPoco.Customer);
+            Assert.AreEqual(customerId, oPoco.Customer.CustomerId);
+            
+
+            // Even we have a Customer object. it's just a stub object. Expect other properties to be null or zero, i.e. in their default value
+            Assert.IsNull(oPoco.Customer.CustomerName);
+
+            // And so is this
+            Assert.IsNull(oPoco.Customer.Country);
+
+
+            ISession s = NhDbMapper.GetSession(connectionString);
+            
+            oPoco = s.Merge(oPoco);
+            s.Flush();
+
+
+            Assert.AreEqual(2, oPoco.OrderLines.Count);
+            Assert.AreNotEqual(0, oPoco.OrderId);
+            Assert.AreEqual(oDto.OrderDescription, oPoco.OrderDescription);
+            // the customer name from DTO would not cascade to POCO. referential integrity is maintained                
+            Assert.AreEqual("Michael", oPoco.Customer.CustomerName);                
+            Assert.AreEqual("Philippines", oPoco.Customer.Country.CountryName);
+                
+            
+        }
+
+
+        [TestMethod]
+        public void Test_nested_Live_Ef_Dto_to_Poco()
+        {
+            // Arrange
+            int customerId = 1;
+            string orderDesc = "Superb";
+
+            OrderDto oDto = new OrderDto
+            {
+                CustomerId = customerId,
+                CustomerName = "Miguel",
+                OrderDescription = orderDesc,
+                OrderDate = new DateTime(2076, 11, 05),
+                OrderLines = new[] 
+                { 
+                    new OrderLineDto { ProductoId = 1, Quantity = 8, Price = 6, Amount = 48 },
+                    new OrderLineDto { ProductoId = 2, Quantity = 3, Price = 6, Amount = 18 }
+                }
+
+            };
+
+            // Act
+            Order oPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
+
+            // Assert            
+            Assert.AreNotSame(oDto, oPoco);
+            Assert.IsNotNull(oPoco.Customer);
+            Assert.AreEqual(customerId, oPoco.Customer.CustomerId);
+            
+
+            // Even we have a Customer object. it's just a stub object. Expect other properties to be null or zero, i.e. in their default value
+            Assert.IsNull(oPoco.Customer.CustomerName);
+
+            // And so is this
+            Assert.IsNull(oPoco.Customer.Country);
+
+
+            EfDbMapper db = new EfDbMapper(connectionString);
+                        
+            db.AssignStub(oPoco);
+
+            
+            var repo = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Order>(db);
+            repo.Merge(oPoco, null);
+
+            /*db.Set<Order>().Add(oPoco);
+            db.SaveChanges();*/
+            
+
+            Assert.AreEqual(2, oPoco.OrderLines.Count);
+
+            int retId = oPoco.OrderId;
+
+            oPoco = db.Set<Order>().AsNoTracking().Single(x => x.OrderId == retId);
+
+            Customer cl = db.Set<Customer>().AsNoTracking().Single(x => x.CustomerId == 2);
+            Assert.AreEqual("Lennon", cl.CustomerName);
+            
+            Customer c = db.Set<Customer>().AsNoTracking().Single(x => x.CustomerId == 1);
+            Assert.AreEqual("Michael", c.CustomerName);
+
+            Assert.AreNotEqual(0, oPoco.OrderId);
+            Assert.AreEqual(oDto.OrderDescription, oPoco.OrderDescription);
+            // the customer name from DTO would not cascade to POCO. referential integrity is maintained                
+            Assert.AreEqual("Michael", oPoco.Customer.CustomerName);                
+            Assert.AreEqual("Philippines", oPoco.Customer.Country.CountryName);
+            Assert.AreEqual(1940, oPoco.Customer.MemberYear);
+            Assert.IsNotNull(oPoco.Customer.Address1);
+            
+
+            
+
+        }//Test_nested_Live_Ef_Dto_to_Poco()
+
+
+
+
+
+        [TestMethod]
+        public void Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry()
+        {
+            // Arrange            
+            var db = new EfDbMapper(connectionString);
+            int orderId = 2;
+
+
+            // Act
+            int c = db.Set<Order>().Where(x => x.OrderId == orderId)
+                    .SelectMany(x => x.Customer.Country.Languages).Count();
+
+            var langs = db.Set<Order>().Where(x => x.OrderId == orderId).SelectMany(x => x.Customer.Country.Languages).OrderBy(x => x.LanguageName);
+
+            Order oPoco = db.Set<Order>().Single(x => x.OrderId == orderId);
+            OrderDto oDto = Mapper.ToDto<Order, OrderDto>(oPoco);            
+            
+            
+
+
+
+            // Assert
+            Assert.AreEqual(0, c);
+            Assert.IsNotNull(oPoco.Customer);
+            Assert.IsNull(oPoco.Customer.Country);   
+         
+            Assert.IsNull(oDto.PossibleLanguages);
+            
+
+        }
 
 
     }

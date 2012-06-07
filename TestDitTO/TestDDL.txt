@@ -1,12 +1,23 @@
-﻿
+﻿use ObjectGraphDitTO;
 
 drop table Comment;
 drop table OrderLine;
 drop table "Order";
-drop table "Product";
+drop table Product;
 drop table Customer;
+drop table "LanguageAssocCountry";
 drop table Country;
+drop table "Language";
 
+
+
+
+
+create table "Language"
+(
+LanguageId int identity(1,1) primary key,
+LanguageName varchar(100) not null
+);
 
 create table Country
 (
@@ -14,19 +25,30 @@ create table Country
 	CountryName varchar(50) not null
 );
 
+
+create table LanguageAssocCountry
+(
+LanguageAssocCountryId int identity(1,1) not null,
+AssocLanguageId int not null references "Language"(LanguageId),
+AssocCountryId int not null references Country(CountryId),
+constraint uk_LanguageAssocCountry unique(AssocLanguageId,AssocCountryId)
+);
+
+
+
 create table Customer
 (
 	CustomerId int identity(1,1) not null primary key,
 	CustomerName varchar(50) not null,
-	Country_CountryId int not null references Country(CountryId),
+	Country_CountryId int null references Country(CountryId),
 	Address1 varchar(50) not null,
 	MemberYear int not null
 );
 
-create table [Order]
+create table "Order"
 (
 OrderId int identity(1,1) not null primary key,
-Customer_CustomerId int references Customer(CustomerId),
+Customer_CustomerId int not null references Customer(CustomerId),
 OrderDate date not null,
 OrderDescription varchar(100) not null
 
@@ -58,15 +80,32 @@ CommentId int identity(1,1) not null primary key,
 TheComment varchar(100) not null
 );
 
+insert into "Language"(LanguageName) values
+('English'),
+('Tagalog'),
+('Mandarin');
 
 insert into Country(CountryName) values
-('Philippines');
+('Philippines'),
+('China');
+
+insert into LanguageAssocCountry(AssocLanguageId,AssocCountryId) values
+(1,1),
+(2,1),
+(3,2);
 
 insert into Customer(CustomerName,Country_CountryId, Address1,MemberYear) values
-('Lennon',1,'Makati',1940);
+('Michael',1,'Makati',1940);
+
+insert into Customer(CustomerName,Country_CountryId, Address1,MemberYear) values
+('Lennon',null,'Makati',1940);
+
 
 insert into [Order](Customer_CustomerId,OrderDescription,OrderDate) values
 (1,'Hello','1976-11-05');
+
+insert into [Order](Customer_CustomerId,OrderDescription,OrderDate) values
+(2,'Hi','1984-08-30');
 
 
 insert into Product(ProductName, ProductDescription) values
@@ -84,3 +123,6 @@ insert into Comment(OrderLine_OrderLineId, TheComment) values
 (2,'Great');
 
 -- this is just a test
+
+select * from "Order";
+select * from LanguageAssocCountry

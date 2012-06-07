@@ -53,9 +53,11 @@ namespace Ienablemuch.DitTO
         }
         
         public abstract void Mapping();
+
         
 
-        void MapCommon<TProperty>(Expression<Func<TDto, TProperty>> dtoProperty, Expression<Func<TPoco, TProperty>> dtoSource, bool isKey)
+        void MapCommon<TDtoProperty,TPocoProperty>(Expression<Func<TDto, TDtoProperty>> dtoProperty, Expression<Func<TPoco, TPocoProperty>> dtoSource, bool isKey)
+            where TPocoProperty : TDtoProperty    
         {
             string dto = dtoProperty.GetExpressionText();
 
@@ -72,12 +74,14 @@ namespace Ienablemuch.DitTO
                 };
         }
 
-        public void Map<TProperty>(Expression<Func<TDto, TProperty>> propertyDestination, Expression<Func<TPoco, TProperty>> propertySource)
+        public void Map<TDtoProperty,TPocoProperty>(Expression<Func<TDto, TDtoProperty>> propertyDestination, Expression<Func<TPoco, TPocoProperty>> propertySource)
+            where TPocoProperty : TDtoProperty    
         {
             MapCommon(propertyDestination, propertySource, false);
         }
 
-        public void MapKey<TProperty>(Expression<Func<TDto, TProperty>> propertyDestination, Expression<Func<TPoco, TProperty>> propertySource)
+        public void MapKey<TDtoProperty,TPocoProperty>(Expression<Func<TDto, TDtoProperty>> propertyDestination, Expression<Func<TPoco, TPocoProperty>> propertySource)
+            where TPocoProperty : TDtoProperty
         {
             MapCommon(propertyDestination, propertySource, true);
         }
@@ -86,10 +90,25 @@ namespace Ienablemuch.DitTO
         
 
 
-        public void MapCollectionLink<TDestElem, TSourceElem,TRef>(
+        public void MapList<TDestElem, TSourceElem,TRef>(
             Expression<Func<TDto, IList<TDestElem>>> collectionDto,
             Expression<Func<TPoco, IList<TSourceElem>>> collectionPoco,
             Expression<Func<TSourceElem, TRef>> referencingObject) where TRef : TPoco
+        {
+            MapListCommon(collectionDto, collectionPoco, referencingObject.GetExpressionText());
+        }
+
+        public void MapList<TDestElem, TSourceElem>(
+            Expression<Func<TDto, IList<TDestElem>>> collectionDto,
+            Expression<Func<TPoco, IList<TSourceElem>>> collectionPoco) 
+        {
+            MapListCommon(collectionDto, collectionPoco, null);
+        }
+
+        void MapListCommon<TDestElem, TSourceElem>(
+            Expression<Func<TDto, IList<TDestElem>>> collectionDto,
+            Expression<Func<TPoco, IList<TSourceElem>>> collectionPoco,
+            string referencingObject) 
         {
             string dtoColName = collectionDto.GetExpressionText();
 
@@ -99,21 +118,17 @@ namespace Ienablemuch.DitTO
 
             if (!Helper.maps[typeof(TDto)].colMaps.ContainsKey(dtoColName))
             {
-                
+
                 Helper.maps[typeof(TDto)].colMaps.Add(dtoColName,
                     new CollectionMapping
                     {
                         CollectionDto = dtoColName,
                         CollectionPoco = collectionPoco.GetExpressionArray(),
-                        ReferencingObject = referencingObject.GetExpressionText()
+                        ReferencingObject = referencingObject
                     }
                     );
             }
-            
-            //Helper.maps[typeof(TDto)].colMaps[dtoColName] = 
-            //    new CollectionMapping
-            //    {
-            //    };
+
         }
 
 
@@ -152,10 +167,11 @@ namespace Ienablemuch.DitTO
                 object val = pi.GetValue(dto, null);
                 if (val == null) continue;
 
+                
 
                 PropertyMapping pm = null;
                 if (maps.ContainsKey(dto.GetType()))
-                {                    
+                {
                     MapSetting ms = maps[dto.GetType()];
 
                     pm =
@@ -176,8 +192,6 @@ namespace Ienablemuch.DitTO
                 // overridden mapping
                 if (pm != null)
                 {
-                    
-                    
                     object valDefault = val.GetType().GetDefault();
 
                     // if 0, empty string, Guid 00000-000000 (?)
@@ -236,7 +250,7 @@ namespace Ienablemuch.DitTO
 
                     if (!isCollection)
                     {
-                        // if property is non-existing
+                        // if property is non-existing                        
                         if (propPoco == null) continue;
                         propPoco.SetValue(poco, val, null);
                     }
@@ -252,15 +266,15 @@ namespace Ienablemuch.DitTO
                         CollectionMapping cm = ms.colMaps[pi.Name];
 
                         
+                        // Collection mapping for DTO-to-POCO supports one level only
+                        if (cm.CollectionPoco.Length > 1) continue;
 
-                        // Collection supports one level only
                         PropertyInfo propPocoCol = poco.GetType().GetProperty(cm.CollectionPoco[0], BindingFlags.Public | BindingFlags.Instance);
                         Type pocoElemType = propPocoCol.PropertyType.GetGenericArguments()[0];
 
 
-                        PropertyInfo pocoElemReferencingObject = 
-                            pocoElemType.GetProperty(cm.ReferencingObject, BindingFlags.Public | BindingFlags.Instance);
-
+                        PropertyInfo pocoElemReferencingObject = cm.ReferencingObject != null ? pocoElemType.GetProperty(cm.ReferencingObject, BindingFlags.Public | BindingFlags.Instance) : null;
+                        
 
                         IList dtoCol = ((IList)val);
 
@@ -271,7 +285,8 @@ namespace Ienablemuch.DitTO
                             object pocoElem = Activator.CreateInstance(pocoElemType);
                             ToPoco(item, pocoElem);
 
-                            pocoElemReferencingObject.SetValue(pocoElem, poco, null);
+                            if (pocoElemReferencingObject != null)
+                                pocoElemReferencingObject.SetValue(pocoElem, poco, null);
 
                             pocoCol.Add(pocoElem);
                         }
@@ -337,42 +352,72 @@ namespace Ienablemuch.DitTO
 
 
 
-                if (!isOverriden)
+                // if (!isOverriden)
                 {
-                    bool isCollection = pi.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(pi.PropertyType);
-
-
-                    PropertyInfo propDto = dto.GetType().GetProperty(pi.Name, BindingFlags.Public | BindingFlags.Instance);
+                    bool isCollection = false;
                     
-                    if (isCollection)
-                    {       
-                        if (maps.ContainsKey(dto.GetType()))
-                        {                            
-                            MapSetting ms = maps[dto.GetType()];
-             
+                    
+                    // pi.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(pi.PropertyType);
+                    PropertyInfo propDto = null;
 
 
-                            // [0] means first level only
-                            // First level is like this:
-                            // MapCollectionLink(d => d.Koments, s => s.Comments, r => r.CommentId);
-                            // Nested level is like this:
-                            // MapCollectionLink(d => d.Koments, s => s.FavoriteBand.Comments, r => r.CommentId);
+                    if (maps.ContainsKey(dto.GetType()))
+                    {
+                        MapSetting ms = maps[dto.GetType()];
 
-                            // Shalling support obtaining the collection from nested level on later version
-                            CollectionMapping cm =
-                                    ms.colMaps.Where(x => x.Value.CollectionPoco[0] == pi.Name)
-                                                .Select(y => y.Value).SingleOrDefault();
 
-                            // is collection overridden
-                            if (cm != null)
+
+                        // [0] means first level only
+                        // First level is like this:
+                        // MapCollectionLink(d => d.Koments, s => s.Comments, r => r.CommentId);
+                        // Nested level is like this:
+                        // MapCollectionLink(d => d.Koments, s => s.FavoriteBand.Comments, r => r.CommentId);
+
+                        // Shall support obtaining the collection from nested level on later version
+
+                        
+
+                        CollectionMapping cm =
+                                ms.colMaps.Where(x => x.Value.CollectionPoco[0] == pi.Name)
+                                            .Select(y => y.Value).SingleOrDefault();
+
+                        // is collection overridden
+                        if (cm != null)
+                        {
+                            // tentatively
+                            isCollection = true;
+
+                            object valWalk = val;
+
+                            // e.g. Customer.Country.Languages
+                            // first level is Customer
+                            PropertyInfo levelWalk = pi;                            
+                            foreach (string nextLevel in cm.CollectionPoco.Skip(1))
                             {
-                                // throw new Exception("Great" + pi.Name);
-                                propDto = dto.GetType().GetProperty(cm.CollectionDto, BindingFlags.Public | BindingFlags.Instance);
+                                // no sense to walk further down the chain
+                                if (valWalk == null)
+                                {
+                                    isCollection = false;
+                                    break;
+                                }
+
+                                levelWalk = levelWalk.PropertyType.GetProperty(nextLevel);
+                                valWalk = levelWalk.GetValue(valWalk, null);
                             }
 
+                            if (isCollection)
+                            {
+                                propDto = dto.GetType().GetProperty(cm.CollectionDto, BindingFlags.Public | BindingFlags.Instance);
+                                val = valWalk;                         
+                            }                         
                         }
-                        
+
+                        // isCollection = true;
                     }
+
+                    if (!isCollection && !isOverriden)
+                        propDto = dto.GetType().GetProperty(pi.Name, BindingFlags.Public | BindingFlags.Instance);
+                    
 
 
 
@@ -380,10 +425,10 @@ namespace Ienablemuch.DitTO
                     if (propDto != null)
                     {
                         
-                        if (!isCollection)
+                        if (!isCollection && !isOverriden)
                             propDto.SetValue(dto, val, null);
-                        else
-                        {
+                        else if (val != null)
+                        {                            
                             IList srcCollections = ((IList)val);
 
                             Type elemType = propDto.PropertyType.GetGenericArguments()[0];

@@ -12,7 +12,14 @@ namespace TestDitTO
     {
         public EfDbMapper(string connectionString) : base(connectionString)
         {
-            this.Configuration.ProxyCreationEnabled = false;
+            // this.Configuration.ProxyCreationEnabled = false;
+
+
+            // set this to true, so we can reach the deep part of an object, e.g. orderPoco.Customer.Country.Languages.
+            // if we will use false, we need to eager load the Customer.Country.Languages. e.g. orderPoco.
+            
+            // true is the default
+            // this.Configuration.ProxyCreationEnabled = true;
         }
 
 
@@ -32,8 +39,27 @@ namespace TestDitTO
             //modelBuilder.Entity<OrderLine>().HasRequired(x => x.Product).WithRequiredPrincipal().Map(y => y.MapKey("Product_ProductId"));
             // modelBuilder.Entity<OrderLine>().Property(x => x.Freebie).HasColumnName("Product_FreebieId");
 
-            
 
+            modelBuilder.Entity<Country>().HasMany(x => x.Languages).WithMany(x => x.Countries)
+                .Map(m =>
+                    {
+                        m.ToTable("LanguageAssocCountry");
+                        m.MapLeftKey("AssocCountryId");
+                        m.MapRightKey("AssocLanguageId");
+                    });
+
+
+            //modelBuilder.Entity<Language>().HasMany(x => x.Countries).WithMany(x => x.Languages)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("LanguageAssocCountry");                    
+            //        m.MapLeftKey("AssocLanguageId");
+            //        m.MapRightKey("AssocCountryId");
+            //    });
+
+    
+        
+            
 
         }
         

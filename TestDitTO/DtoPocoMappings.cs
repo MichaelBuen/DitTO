@@ -13,14 +13,20 @@ namespace TestDitTO
     {
         public override void Mapping()
         {
-            Map(x => x.CustomerName, y => y.Customer.CustomerName);
+            
+
+            // Map(x => x.CustomerName, y => y.Customer.MemberYear);
             // Map(x => x.CustomerName, y => y.OrderDescription);
 
-            MapKey(x => x.CustomerId, y => y.Customer.CustomerId);
+            Map(x => x.CustomerName, y => y.Customer.CustomerName);
+            MapKey(x => x.CustomerId, y => y.Customer.CustomerId);            
             Map(x => x.Address1, y => y.Customer.Address1);
             Map(x => x.CountryName, y => y.Customer.Country.CountryName);
 
-            MapCollectionLink(x => x.OrderLines, x => x.OrderLines, z => z.Order);
+            MapList(x => x.OrderLines, x => x.OrderLines, z => z.Order);
+
+            MapList(x => x.PossibleLanguages, x => x.Customer.Country.Languages);
+            
         }
     }
 
@@ -32,7 +38,7 @@ namespace TestDitTO
             Map(d => d.ProductDescription, s => s.Product.ProductDescription);
             MapKey(d => d.FreebieId, s => s.Freebie.ProductId);
 
-            MapCollectionLink(d => d.Koments, s => s.Comments, r => r.OrderLine);
+            MapList(d => d.Koments, s => s.Comments, r => r.OrderLine);
             
         }
     }

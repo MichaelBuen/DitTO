@@ -51,8 +51,12 @@ namespace TestDitTO
                                .Conventions.Add<RowversionConvention>()
                                .Conventions.Add<ForeignKeyNameConvention>()
 
+                               .Override<Country>(x => x.HasManyToMany(y => y.Languages).Table("LanguageAssocCountry").ParentKeyColumn("AssocCountryId").ChildKeyColumn("AssocLanguageId"))
+                               .Override<Language>(x => x.HasManyToMany(y => y.Countries).Table("LanguageAssocCountry").ParentKeyColumn("AssocLanguageId").ChildKeyColumn("AssocCountryId"))
+
                                .Override<Customer>(x =>
                                    {
+                                       x.LazyLoad();
                                        x.References(z => z.Country).Column("Country_CountryId");
                                        x.Id(z => z.CustomerId).GeneratedBy.Identity();
                                    })
@@ -107,7 +111,7 @@ namespace TestDitTO
             IList<Type> _objectsToMap = new List<Type>()
             {
                 // whitelisted objects to map
-                typeof(Order), typeof(OrderLine), typeof(Product), typeof(Comment), typeof(Customer), typeof(Country)
+                typeof(Order), typeof(OrderLine), typeof(Product), typeof(Comment), typeof(Customer), typeof(Country), typeof(Language)
             };
             public override bool ShouldMap(Type type) { return _objectsToMap.Any(x => x == type); }
             public override bool IsId(FluentNHibernate.Member member) { return member.Name == member.DeclaringType.Name + "Id"; }

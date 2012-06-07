@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
 {
     public static class EfPoco
     {
-        public static void AssignStub(object poco, DbContext db) 
+        public static void AssignStub(this DbContext db, object poco) 
         {
             AssignStubx(poco, db);
         }
@@ -63,7 +63,7 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
 
                     foreach (object elem in col)
                     {
-                        AssignStub(elem, db);
+                        db.AssignStub(elem);
                     }
 
                 }
@@ -72,71 +72,10 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
         }//AssignStub
 
 
-        /*
-        public static void AssignStub<TDto>(object poco, DbContext db) where TDto : new()
-        {
-            // TDto x = new TDto();
-
-            AssignStub(typeof(TDto), poco, db);
-            
-
-        }
-
-        internal static void AssignStub(Type dtoPattern, object poco, DbContext db)
-        {            
-            IEnumerable<PropertyMapping> piNeedStub = Mapper.StubsNeeded(dtoPattern);
-
-            foreach (PropertyMapping pm in piNeedStub)
-            {
-                // pm.PropertyPoco.First().   e.g. Customer of Customer.CustomerId.    Customer is PropertyPoco[0], CustomerId is PropertyPoco[1]
-                PropertyInfo pocoForeign = poco.GetType().GetProperty(pm.PropertyPoco[0], BindingFlags.Public | BindingFlags.Instance);
-                if (pocoForeign == null) continue;
-               
-                
-                object val = pocoForeign.GetValue(poco, null);
-                // foreign key nullable
-                if (val == null) continue;
-
-
-                
-                PropertyInfo pocoForeignId = pocoForeign.PropertyType.GetProperty(pm.PropertyPoco.Last(), BindingFlags.Public | BindingFlags.Instance);
-
-                object id = pocoForeignId.GetValue(val, null);
-
-                pocoForeign.SetValue(poco, LoadStub(pocoForeign.PropertyType, pm.PropertyPoco.Last(), id, db), null);               
-            }
-
-
-            IEnumerable<PropertyInfo> piCollection =
-                dtoPattern.GetProperties()
-                .Where(x => x.PropertyType.IsGenericType &&  typeof(IEnumerable).IsAssignableFrom(x.PropertyType));
-
-
-            foreach (PropertyInfo item in piCollection)
-            {
-                PropertyInfo px = poco.GetType().GetProperty(item.Name, BindingFlags.Public | BindingFlags.Instance);
-                
-                // same property exists from dto to poco
-                if (px != null)
-                {
-                    IList col = (IList)px.GetValue(poco, null);
-                    if (col == null) continue;
-
-                    Type dtoType = item.PropertyType.GetInterfaces().Where(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>)).Single().GetGenericArguments()[0];
-
-                    foreach (object elem in col)
-                    {                                              
-                        AssignStub(dtoType, elem, db);
-                    }
-
-                }
-            }
-
-        }//AssignStub
-        */
 
         internal static object LoadStub(Type t, string primaryKeyName, object id, DbContext db)
         {
+            
 
 
             var cachedEnt =
@@ -147,6 +86,8 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
 
                         return value.Equals(id);
                     });
+
+                    
 
             if (cachedEnt != null)
             {
@@ -159,18 +100,13 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
 
                 t.InvokeMember(primaryKeyName, System.Reflection.BindingFlags.SetProperty, null, stub, new object[] { id });
 
-
-                db.Entry(stub).State = EntityState.Unchanged;
+                db.Entry(stub).State = EntityState.Unchanged;                               
 
                 return stub;
             }
 
 
         }//LoadStub
-
-
-
-
 
     }
 }
