@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 using NHibernate;
 
@@ -11,7 +10,6 @@ using FluentNHibernate.Automapping;
 using FluentNHibernate.Conventions;
 using FluentNHibernate.Conventions.Instances;
 
-using TheEntities;
 using TheEntities.Poco;
 
 
@@ -44,19 +42,14 @@ namespace TestDitTO
                             (
                                 AutoMap.AssemblyOf<Order>(new CustomConfiguration())
 
-                                // .Conventions.Add(ForeignKey.EndsWith("Id"))
-                               // .Conventions.Add<CustomForeignKeyConvention>()
-
                                .Conventions.Add<HasManyConvention>()
                                .Conventions.Add<RowversionConvention>()
-                               .Conventions.Add<ForeignKeyNameConvention>()
-
+ 
                                .Override<Country>(x => x.HasManyToMany(y => y.Languages).Table("LanguageAssocCountry").ParentKeyColumn("AssocCountryId").ChildKeyColumn("AssocLanguageId"))
                                .Override<Language>(x => x.HasManyToMany(y => y.Countries).Table("LanguageAssocCountry").ParentKeyColumn("AssocLanguageId").ChildKeyColumn("AssocCountryId"))
 
                                .Override<Customer>(x =>
                                    {
-                                       x.LazyLoad();
                                        x.References(z => z.Country).Column("Country_CountryId");
                                        x.Id(z => z.CustomerId).GeneratedBy.Identity();
                                    })
@@ -119,40 +112,6 @@ namespace TestDitTO
             public override bool IsVersion(FluentNHibernate.Member member) { return member.Name == "RowVersion"; }
         }
 
-        public class ForeignKeyNameConvention : IHasManyConvention
-        {
-            public void Apply(IOneToManyCollectionInstance instance)
-            {
-
-                
-                
-                //  e.g. "Order_OrderId"
-                // instance.Key.Column("Order_OrderId");
-                
-                // instance.Key.Column(instance.EntityType.Name + "Id");
-            }
-        }
-
-
-        //public class CustomForeignKeyConvention : ForeignKeyConvention
-        //{
-            
-        //    protected override string GetKeyName(FluentNHibernate.Member property, Type type)
-        //    {
-        //        return null;
-                
-        //        //if (property == null)
-        //        //    return type.Name + "Id";
-
-
-        //        // make foreign key compatible with Entity Framework
-        //        // return type.Name + "_" + property.Name + "Id";
-                
-        //        // string name = property.Name + "_" + property.MemberInfo.Name + "Id";                
-        //        string name = property.Name + "_" + property.MemberInfo.Name + "Id";                
-        //        return name;
-        //    }
-        //}
 
 
         class HasManyConvention : IHasManyConvention
