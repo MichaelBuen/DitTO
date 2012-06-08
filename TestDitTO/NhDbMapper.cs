@@ -77,10 +77,6 @@ namespace TestDitTO
 
                                         x.HasMany(z => z.Comments).KeyColumn("OrderLine_OrderLineId");                                        
                                     })
-                                //.Override<Product>(x =>
-                                //    {
-
-                                //    })
                                 .Override<Comment>(x =>
                                     {
                                         x.References(z => z.OrderLine).Column("OrderLine_OrderLineId");                                        

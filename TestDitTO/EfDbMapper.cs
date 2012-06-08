@@ -15,8 +15,9 @@ namespace TestDitTO
             // this.Configuration.ProxyCreationEnabled = false;
 
 
-            // set this to true, so we can reach the deep part of an object, e.g. orderPoco.Customer.Country.Languages.
-            // if we will use false, we need to eager load the Customer.Country.Languages. e.g. orderPoco.
+            // Set ProxyCreationEnabled to true, so we can reach the deep part of an object, e.g. orderPoco.Customer.Country.Languages.
+            // If we will use false, we need to eager load the Customer.Country.Languages,
+            // i.e. orderPoco.Include("Customer").Include("Customer.Country").Include("Customer.Country.Languages")
             
             // true is the default
             // this.Configuration.ProxyCreationEnabled = true;
