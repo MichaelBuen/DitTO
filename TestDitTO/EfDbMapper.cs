@@ -12,6 +12,7 @@ namespace TestDitTO
     {
         public EfDbMapper(string connectionString) : base(connectionString)
         {
+            // don't use this:
             // this.Configuration.ProxyCreationEnabled = false;
 
 

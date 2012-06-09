@@ -162,7 +162,7 @@ namespace Ienablemuch.DitTO
 
         internal static void ToPoco(object dto, object poco)
         {
-            foreach (PropertyInfo pi in dto.GetType().GetProperties())
+            foreach (PropertyInfo pi in dto.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {
                 object val = pi.GetValue(dto, null);
                 if (val == null) continue;
@@ -303,15 +303,44 @@ namespace Ienablemuch.DitTO
 
         internal static void ToDto(object poco, object dto)
         {
-            foreach (PropertyInfo pi in poco.GetType().GetProperties())
+            ToDto(poco, dto, null);
+        }
+
+        static void ToDto(object poco, object dto, Type sourceType)
+        {
+            
+
+
+            foreach (PropertyInfo pi in poco.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {
+
+
+                // avoid circular reference
+                if (sourceType != null)
+                {
+                    
+                    // http://connect.microsoft.com/VisualStudio/feedback/details/679399/entity-framework-4-1-using-lazyloading-with-notracking-option-causes-invalidoperationexception
+                    // See the Language's Countries in this project and the Country's Languages
+
+                                        
+                    bool isPropertyCollection = pi.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(pi.PropertyType);
+                    if (isPropertyCollection)
+                    {
+                        if (pi.PropertyType.GetGenericArguments()[0] == sourceType)
+                        {
+                            continue;
+                        }
+                    }
+                }
+
+                System.Diagnostics.Debug.WriteLine(pi.Name);
                 object val = pi.GetValue(poco, null);
                 if (val == null) continue;
 
 
                 bool isOverriden = false;
 
-                
+
                 if (maps.ContainsKey(dto.GetType()))
                 {
                     MapSetting ms = maps[dto.GetType()];
@@ -348,15 +377,17 @@ namespace Ienablemuch.DitTO
                         PropertyInfo px = dto.GetType().GetProperty(p.PropertyDto);
                         px.SetValue(dto, obtainedVal, null);
                     }
-                }
+                }//if
 
 
 
-                // if (!isOverriden)
+                
                 {
                     bool isCollection = false;
+                    Type collectionParent = null; //  e.g. Country.Languages. The languages parent is Country
                     
-                    
+
+
                     // pi.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(pi.PropertyType);
                     PropertyInfo propDto = null;
 
@@ -375,7 +406,7 @@ namespace Ienablemuch.DitTO
 
                         // Shall support obtaining the collection from nested level on later version
 
-                        
+
 
                         CollectionMapping cm =
                                 ms.colMaps.Where(x => x.Value.CollectionPoco[0] == pi.Name)
@@ -391,7 +422,7 @@ namespace Ienablemuch.DitTO
 
                             // e.g. Customer.Country.Languages
                             // first level is Customer
-                            PropertyInfo levelWalk = pi;                            
+                            PropertyInfo levelWalk = pi;
                             foreach (string nextLevel in cm.CollectionPoco.Skip(1))
                             {
                                 // no sense to walk further down the chain
@@ -401,15 +432,20 @@ namespace Ienablemuch.DitTO
                                     break;
                                 }
 
+                                // save the parent first before drilling to child.
+                                // use for avoiding circular reference:
+                                // http://connect.microsoft.com/VisualStudio/feedback/details/679399/entity-framework-4-1-using-lazyloading-with-notracking-option-causes-invalidoperationexception
+                                collectionParent = levelWalk.PropertyType;
+
                                 levelWalk = levelWalk.PropertyType.GetProperty(nextLevel);
                                 valWalk = levelWalk.GetValue(valWalk, null);
                             }
 
                             if (isCollection)
-                            {
+                            {                                
                                 propDto = dto.GetType().GetProperty(cm.CollectionDto, BindingFlags.Public | BindingFlags.Instance);
-                                val = valWalk;                         
-                            }                         
+                                val = valWalk;
+                            }
                         }
 
                         // isCollection = true;
@@ -417,18 +453,18 @@ namespace Ienablemuch.DitTO
 
                     if (!isCollection && !isOverriden)
                         propDto = dto.GetType().GetProperty(pi.Name, BindingFlags.Public | BindingFlags.Instance);
-                    
+
 
 
 
                     // if property is existing
                     if (propDto != null)
                     {
-                        
+
                         if (!isCollection && !isOverriden)
                             propDto.SetValue(dto, val, null);
                         else if (val != null)
-                        {                            
+                        {
                             IList srcCollections = ((IList)val);
 
                             Type elemType = propDto.PropertyType.GetGenericArguments()[0];
@@ -437,13 +473,16 @@ namespace Ienablemuch.DitTO
                             foreach (object item in srcCollections)
                             {
                                 object dtoObject = Activator.CreateInstance(elemType);
-                                ToDto(item, dtoObject);
+
+                                // avoids circular reference
+                                // http://connect.microsoft.com/VisualStudio/feedback/details/679399/entity-framework-4-1-using-lazyloading-with-notracking-option-causes-invalidoperationexception
+                                ToDto(item, dtoObject, collectionParent);
                                 clonedList.Add(dtoObject);
                             }
                             propDto.SetValue(dto, clonedList, null);
                         }
                     }//property is existing
-                }//if
+                }
 
             }//foreach            
         }//void

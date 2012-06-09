@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestRun id="60eb2837-009f-4925-bcf8-8d160e52db57" name="Michael@MICHAEL-PC 2012-06-07 09:49:25" runUser="Michael-PC\Michael" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestRun id="746b3200-2801-41f7-8908-b3e27c7856ed" name="Michael@MICHAEL-PC 2012-06-09 10:29:33" runUser="Michael-PC\Michael" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <TestSettings name="Local" id="397f7128-1790-459c-a965-4142d4897709">
     <Description>These are default test settings for a local test run.</Description>
-    <Deployment enabled="false" runDeploymentRoot="Michael_MICHAEL-PC 2012-06-07 09_49_25">
+    <Deployment enabled="false" runDeploymentRoot="Michael_MICHAEL-PC 2012-06-09 10_29_33">
       <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" />
       <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll" />
       <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll" />
@@ -20,14 +20,14 @@
       </AgentRule>
     </Execution>
   </TestSettings>
-  <Times creation="2012-06-07T09:49:25.9410000+08:00" queuing="2012-06-07T09:49:25.9840000+08:00" start="2012-06-07T09:49:25.9940000+08:00" finish="2012-06-07T09:49:27.7640000+08:00" />
+  <Times creation="2012-06-09T10:29:33.0440000+08:00" queuing="2012-06-09T10:29:33.1000000+08:00" start="2012-06-09T10:29:33.1260000+08:00" finish="2012-06-09T10:29:35.1170000+08:00" />
   <ResultSummary outcome="Failed">
     <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
   <TestDefinitions>
-    <UnitTest name="Test_nested_Live_Ef_Dto_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="71c37fa7-eb5a-3ce4-535c-1616d2d1517e">
-      <Execution id="2b307ebb-8fab-49f3-8ef9-691ed934159f" />
-      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested_Live_Ef_Dto_to_Poco" />
+    <UnitTest name="Test_Live_Ef_to_Poco_Get" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="b6cff934-6c1b-acff-abf7-abfad91f450a">
+      <Execution id="b22fa7b4-79cb-4537-833b-c989e71e7c57" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_to_Poco_Get" />
     </UnitTest>
   </TestDefinitions>
   <TestLists>
@@ -35,14 +35,15 @@
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <TestEntries>
-    <TestEntry testId="71c37fa7-eb5a-3ce4-535c-1616d2d1517e" executionId="2b307ebb-8fab-49f3-8ef9-691ed934159f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6cff934-6c1b-acff-abf7-abfad91f450a" executionId="b22fa7b4-79cb-4537-833b-c989e71e7c57" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <Results>
-    <UnitTestResult executionId="2b307ebb-8fab-49f3-8ef9-691ed934159f" testId="71c37fa7-eb5a-3ce4-535c-1616d2d1517e" testName="Test_nested_Live_Ef_Dto_to_Poco" computerName="MICHAEL-PC" duration="00:00:01.2580095" startTime="2012-06-07T09:49:26.0350000+08:00" endTime="2012-06-07T09:49:27.5280000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b307ebb-8fab-49f3-8ef9-691ed934159f">
+    <UnitTestResult executionId="b22fa7b4-79cb-4537-833b-c989e71e7c57" testId="b6cff934-6c1b-acff-abf7-abfad91f450a" testName="Test_Live_Ef_to_Poco_Get" computerName="MICHAEL-PC" duration="00:00:01.1818666" startTime="2012-06-09T10:29:33.1710000+08:00" endTime="2012-06-09T10:29:34.5990000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b22fa7b4-79cb-4537-833b-c989e71e7c57">
       <Output>
         <ErrorInfo>
-          <Message>Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;0&gt;. </Message>
-          <StackTrace>   at TestDitTO.Tests.Test_nested_Live_Ef_Dto_to_Poco() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 730
+          <Message>Test method TestDitTO.Tests.Test_Live_Ef_to_Poco_Get threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at TestDitTO.Tests.Test_Live_Ef_to_Poco_Get() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 809
 </StackTrace>
         </ErrorInfo>
       </Output>
