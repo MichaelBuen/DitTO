@@ -62,7 +62,7 @@ namespace TestDitTO
             // Assert
 
             Assert.AreEqual(cOrderDescription, odto.OrderDescription);
-            Assert.AreEqual(cOrderDate, odto.OrderDate);
+            Assert.AreEqual(cOrderDate, odto.DummyDate);
             Assert.AreEqual(cOrderId, odto.OrderId);
 
             Assert.IsNotNull(odto.OrderLines);
@@ -151,6 +151,8 @@ namespace TestDitTO
             
             // ISession s = NhDbMapper.GetSession(System.Configuration.ConfigurationManager.ConnectionStrings["EfDbMapper"].ConnectionString);
 
+            DateTime expectedDate = new DateTime(1976, 11, 5);
+
             ISession s = NhDbMapper.GetSession(connectionString);
 
 
@@ -163,7 +165,7 @@ namespace TestDitTO
             OrderDto oDto = Mapper.ToDto<Order, OrderDto>(o);
 
             Assert.AreEqual("Hello", oDto.OrderDescription);
-            Assert.AreEqual(new DateTime(1976, 11, 5), oDto.OrderDate);
+            Assert.AreEqual(expectedDate, oDto.DummyDate);
             Assert.AreEqual(3, oDto.OrderLines.Count);
 
             Assert.AreEqual(1, oDto.OrderLines[0].ProductoId);
@@ -189,6 +191,8 @@ namespace TestDitTO
             // Arrange
             var db = new EfDbMapper(connectionString);
 
+            DateTime expectedDate = new DateTime(1976, 11, 5);
+
             
 
             // Act
@@ -204,7 +208,7 @@ namespace TestDitTO
             OrderDto odto = Mapper.ToDto<Order, OrderDto>(o);
 
             Assert.AreEqual("Hello", odto.OrderDescription);
-            Assert.AreEqual(new DateTime(1976, 11, 5), odto.OrderDate);
+            Assert.AreEqual(expectedDate, odto.DummyDate);
             Assert.AreEqual(3, odto.OrderLines.Count);
 
             Assert.AreEqual(1, odto.OrderLines[0].ProductoId);
@@ -371,7 +375,7 @@ namespace TestDitTO
             // Assert
 
             // Assert.AreEqual(cOrderDescription, odto.ZOrderDescription);
-            Assert.AreEqual(cOrderDate, oDto.OrderDate);
+            Assert.AreEqual(cOrderDate, oDto.DummyDate);
             Assert.AreEqual(cOrderId, oDto.OrderId);
 
             // Assert.AreEqual(o.OrderDescription, odto.CustomerName);            
@@ -835,6 +839,22 @@ namespace TestDitTO
             Assert.AreEqual(3, oDto.OrderLines.Count);
 
 
+        }
+
+        [TestMethod]
+        public void Test_Mapping_Corner_Cases()
+        {
+            // Arrange
+            var dx = new DateTime(1976, 11, 05); 
+            Order poco = new Order { OrderDate = dx };
+
+            // Act
+            OrderDto dto = Mapper.ToDto<Order, OrderDto>(poco);
+
+            // Assert
+            Assert.AreEqual(1976, dto.MemberYear);
+            Assert.AreNotEqual(dx, dto.OrderDate);
+            Assert.AreEqual(dx, dto.DummyDate);
         }
 
 

@@ -23,6 +23,10 @@ namespace TestDitTO
             Map(x => x.Address1, y => y.Customer.Address1);
             Map(x => x.CountryName, y => y.Customer.Country.CountryName);
 
+            Map(x => x.MemberYear, y => y.OrderDate.Year);                        
+            Map(x => x.DummyDate, y => y.OrderDate);
+
+
             MapList(x => x.OrderLines, x => x.OrderLines, z => z.Order);
 
             

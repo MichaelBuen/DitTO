@@ -93,6 +93,8 @@ namespace TheEntities.Dto
         
         public int CustomerId { get; set; }
 
+        public DateTime DummyDate { get; set; }
+
         public IList<TheEntities.Poco.Language> PossibleLanguages{ get; set; }
 
         

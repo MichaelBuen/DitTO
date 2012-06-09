@@ -333,7 +333,7 @@ namespace Ienablemuch.DitTO
                     }
                 }
 
-                System.Diagnostics.Debug.WriteLine(pi.Name);
+                
                 object val = pi.GetValue(poco, null);
                 if (val == null) continue;
 
@@ -353,7 +353,7 @@ namespace Ienablemuch.DitTO
                         ms.propMaps.Where(x => x.Value.PropertyPoco[0] == pi.Name)
                             .Select(y => y.Value);
 
-                    isOverriden = pm.Count() != 0;
+                    isOverriden = pm.Any(x => x.PropertyPoco.Length == 1);
 
                     foreach (PropertyMapping p in pm)
                     {
