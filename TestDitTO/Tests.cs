@@ -12,6 +12,8 @@ using NHibernate;
 using NHibernate.Linq;
 using Ienablemuch.DitTO.EntityFrameworkStubAssigner;
 
+using EF = Ienablemuch.ToTheEfnhX.EntityFramework;
+
 namespace TestDitTO
 {
     
@@ -317,7 +319,7 @@ namespace TestDitTO
             db.AssignStub(oPoco);
 
 
-            var repoOrder = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Order>(db);
+            var repoOrder = new EF.Repository<Order>(db);
             repoOrder.Merge(oPoco, null);
 
 
@@ -716,7 +718,7 @@ namespace TestDitTO
             db.AssignStub(oPoco);
 
             
-            var repo = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Order>(db);
+            var repo = new EF.Repository<Order>(db);
             repo.Merge(oPoco, null);
 
             /*db.Set<Order>().Add(oPoco);
@@ -787,9 +789,9 @@ namespace TestDitTO
         public void Test_Corner_Cases_on_Live_Ef_to_Poco()
         {
             var db = new EfDbMapper(connectionString);
-            var repo = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Order>(db);
+            var repo = new EF.Repository<Order>(db);
 
-            var customerStub = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Customer>(db);
+            var customerStub = new EF.Repository<Customer>(db);
             Customer cx = customerStub.LoadStub(1);
 
 
@@ -818,7 +820,7 @@ namespace TestDitTO
 
                 // Do these instead:
                 int lid = languages.First().LanguageId;
-                Language firstLanguage = new Ienablemuch.ToTheEfnhX.EntityFramework.EfRepository<Language>(db).All.SingleOrDefault(l => l.LanguageId == lid);
+                Language firstLanguage = new EF.Repository<Language>(db).All.SingleOrDefault(l => l.LanguageId == lid);
                 object countries = firstLanguage.Countries;
                 
             }
