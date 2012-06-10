@@ -277,8 +277,9 @@ namespace Ienablemuch.DitTO
                         
 
                         IList dtoCol = ((IList)val);
+                        
+                        IList pocoCol = (IList)Activator.CreateInstance(typeof(System.Collections.Generic.List<>).MakeGenericType(pocoElemType));
 
-                        IList pocoCol = (IList)Common.Create("System.Collections.Generic.List", pocoElemType);
 
                         foreach (object item in dtoCol)
                         {
@@ -467,8 +468,8 @@ namespace Ienablemuch.DitTO
                         {
                             IList srcCollections = ((IList)val);
 
-                            Type elemType = propDto.PropertyType.GetGenericArguments()[0];
-                            IList clonedList = (IList)Common.Create("System.Collections.Generic.List", elemType);
+                            Type elemType = propDto.PropertyType.GetGenericArguments()[0];                            
+                            IList clonedList = (IList) Activator.CreateInstance(typeof(System.Collections.Generic.List<>).MakeGenericType(elemType));
 
                             foreach (object item in srcCollections)
                             {

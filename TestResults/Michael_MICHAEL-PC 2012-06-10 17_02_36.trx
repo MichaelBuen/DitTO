@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d1f542e3-a413-4374-99e8-16af0342c76b" name="Michael@MICHAEL-PC 2012-06-10 17:02:36" runUser="Michael-PC\Michael" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="397f7128-1790-459c-a965-4142d4897709">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Michael_MICHAEL-PC 2012-06-10 17_02_36">
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\DitTO\bin\Debug\Ienablemuch.DitTO.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\FluentNHibernate.1.3.0.727\lib\FluentNHibernate.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\NHibernate.3.3.0.4000\lib\Net35\NHibernate.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\SystemLinqDynamic.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Debug\TheEntities.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.EntityFrameworkStubMaker\bin\Debug\Ienablemuch.DitTO.EntityFrameworkStubAssigner.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-10T17:02:36.4220000+08:00" queuing="2012-06-10T17:02:36.4840000+08:00" start="2012-06-10T17:02:36.5050000+08:00" finish="2012-06-10T17:02:41.8370000+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="18" executed="18" passed="10" error="0" failed="8" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Test_Dto_To_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="6a9476f7-86f9-8504-595a-f2251f9be6bf">
+      <Execution id="22dee3cd-418b-4fd4-8b1c-d3069164e03d" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Strongly_typed_mapper_for_Dto_To_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="4794794d-9fdd-7db6-103b-b405f98bc982">
+      <Execution id="39ad6469-a8d1-418e-9013-798d81521b2b" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Strongly_typed_mapper_for_Dto_To_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Ef_Language_Country" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="868724cd-ee1a-d8c7-130f-18d9892c04d2">
+      <Execution id="34be9562-f627-4a0d-a5bc-6db322fd5bc9" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_Language_Country" />
+    </UnitTest>
+    <UnitTest name="Test_Mapping_Corner_Cases" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="03a43309-9383-a197-5846-15498a856f10">
+      <Execution id="5dfded66-056a-496c-8f7c-cbaada8c1f00" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Mapping_Corner_Cases" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="0ba62294-c0c5-2415-33e0-915234705ac7">
+      <Execution id="c75fc4ab-568f-417f-b79c-b5ea6bd245dd" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry" />
+    </UnitTest>
+    <UnitTest name="Test_Live_EF_Poco_To_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="e79dc9e1-ed55-95b0-8016-10df46076ea1">
+      <Execution id="47c98883-9e25-4a52-b951-67f6a6e62b3f" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_EF_Poco_To_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_nested_Live_Ef_Dto_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="71c37fa7-eb5a-3ce4-535c-1616d2d1517e">
+      <Execution id="7884e1ec-21bd-428f-bdfa-85a64ec2b3e6" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested_Live_Ef_Dto_to_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Nh_Language_Country_Poco_to_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="1d6a957a-0b27-6297-ca14-3404fd6b8366">
+      <Execution id="661610a3-8680-4400-9b9f-61534e3d82d5" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Nh_Language_Country_Poco_to_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_Dto_To_Live_Nh_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="5cba631f-b350-c9fc-48ed-945bf7159979">
+      <Execution id="b0435d82-ece8-42d2-99f2-274ccb47bc85" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Live_Nh_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Ef_Language_Country_Poco_to_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="6032bfcb-ead9-6f8b-54e1-1894c4fa55ab">
+      <Execution id="74c8d8a1-a7bd-47ca-9f38-94bd972f5990" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_Language_Country_Poco_to_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_Corner_Cases_on_Live_Ef_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="c28ecea9-2bbb-9a85-15e6-7e296cbbdb71">
+      <Execution id="933963aa-0651-42ed-947b-f2dbc9c77d5b" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Corner_Cases_on_Live_Ef_to_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_NH_Language_Country" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="0fbef700-03bb-52e7-7fa3-3fe06f980c30">
+      <Execution id="96756837-2ef3-4d46-9d52-dcb3e2d150f3" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_NH_Language_Country" />
+    </UnitTest>
+    <UnitTest name="Test_Live_NH_Poco_To_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="504ce877-e083-b887-b5e8-a14e1c067a2c">
+      <Execution id="0d791d7e-fc9f-4960-a0b0-664421e6975a" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_NH_Poco_To_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_Dto_To_Live_Ef_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="03a77bf7-0d03-4582-234d-239776031b7e">
+      <Execution id="8ecaed34-f025-49e2-ac88-ef570ff953c3" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Live_Ef_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Poco_To_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="e39ac0b9-7f42-f290-17ef-e8b3037f8a38">
+      <Execution id="b85c02e9-ee43-4021-a80b-6fa96a420a1b" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Poco_To_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_nested" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="a7d2cb75-a038-21d3-5a24-3d064aab4870">
+      <Execution id="802116bd-c3da-4f27-bb7e-1e2355f4979f" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested" />
+    </UnitTest>
+    <UnitTest name="Test_Strongly_typed_Mapper_for_Poco_to_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="54a8c533-17fa-1b67-b0e4-80569fa46822">
+      <Execution id="2ae79000-3679-4d33-a256-03f5436025ff" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Strongly_typed_Mapper_for_Poco_to_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_nested_Live_Nh_Dto_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="0d685c04-58ea-a98b-23f0-951633879e8a">
+      <Execution id="7e0a2ca1-c10a-425a-b4f9-8f9d9c336a5a" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested_Live_Nh_Dto_to_Poco" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="03a43309-9383-a197-5846-15498a856f10" executionId="5dfded66-056a-496c-8f7c-cbaada8c1f00" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03a77bf7-0d03-4582-234d-239776031b7e" executionId="8ecaed34-f025-49e2-ac88-ef570ff953c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ba62294-c0c5-2415-33e0-915234705ac7" executionId="c75fc4ab-568f-417f-b79c-b5ea6bd245dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d685c04-58ea-a98b-23f0-951633879e8a" executionId="7e0a2ca1-c10a-425a-b4f9-8f9d9c336a5a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0fbef700-03bb-52e7-7fa3-3fe06f980c30" executionId="96756837-2ef3-4d46-9d52-dcb3e2d150f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d6a957a-0b27-6297-ca14-3404fd6b8366" executionId="661610a3-8680-4400-9b9f-61534e3d82d5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4794794d-9fdd-7db6-103b-b405f98bc982" executionId="39ad6469-a8d1-418e-9013-798d81521b2b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="504ce877-e083-b887-b5e8-a14e1c067a2c" executionId="0d791d7e-fc9f-4960-a0b0-664421e6975a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54a8c533-17fa-1b67-b0e4-80569fa46822" executionId="2ae79000-3679-4d33-a256-03f5436025ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5cba631f-b350-c9fc-48ed-945bf7159979" executionId="b0435d82-ece8-42d2-99f2-274ccb47bc85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6032bfcb-ead9-6f8b-54e1-1894c4fa55ab" executionId="74c8d8a1-a7bd-47ca-9f38-94bd972f5990" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6a9476f7-86f9-8504-595a-f2251f9be6bf" executionId="22dee3cd-418b-4fd4-8b1c-d3069164e03d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="71c37fa7-eb5a-3ce4-535c-1616d2d1517e" executionId="7884e1ec-21bd-428f-bdfa-85a64ec2b3e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="868724cd-ee1a-d8c7-130f-18d9892c04d2" executionId="34be9562-f627-4a0d-a5bc-6db322fd5bc9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7d2cb75-a038-21d3-5a24-3d064aab4870" executionId="802116bd-c3da-4f27-bb7e-1e2355f4979f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c28ecea9-2bbb-9a85-15e6-7e296cbbdb71" executionId="933963aa-0651-42ed-947b-f2dbc9c77d5b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e39ac0b9-7f42-f290-17ef-e8b3037f8a38" executionId="b85c02e9-ee43-4021-a80b-6fa96a420a1b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e79dc9e1-ed55-95b0-8016-10df46076ea1" executionId="47c98883-9e25-4a52-b951-67f6a6e62b3f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="5dfded66-056a-496c-8f7c-cbaada8c1f00" testId="03a43309-9383-a197-5846-15498a856f10" testName="Test_Mapping_Corner_Cases" computerName="MICHAEL-PC" duration="00:00:00.0436368" startTime="2012-06-10T17:02:36.5750000+08:00" endTime="2012-06-10T17:02:36.8780000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5dfded66-056a-496c-8f7c-cbaada8c1f00">
+    </UnitTestResult>
+    <UnitTestResult executionId="8ecaed34-f025-49e2-ac88-ef570ff953c3" testId="03a77bf7-0d03-4582-234d-239776031b7e" testName="Test_Dto_To_Live_Ef_Poco" computerName="MICHAEL-PC" duration="00:00:01.2657979" startTime="2012-06-10T17:02:36.8810000+08:00" endTime="2012-06-10T17:02:38.1520000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ecaed34-f025-49e2-ac88-ef570ff953c3">
+    </UnitTestResult>
+    <UnitTestResult executionId="c75fc4ab-568f-417f-b79c-b5ea6bd245dd" testId="0ba62294-c0c5-2415-33e0-915234705ac7" testName="Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry" computerName="MICHAEL-PC" duration="00:00:00.1315053" startTime="2012-06-10T17:02:38.1550000+08:00" endTime="2012-06-10T17:02:38.2950000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c75fc4ab-568f-417f-b79c-b5ea6bd245dd">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 774
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7e0a2ca1-c10a-425a-b4f9-8f9d9c336a5a" testId="0d685c04-58ea-a98b-23f0-951633879e8a" testName="Test_nested_Live_Nh_Dto_to_Poco" computerName="MICHAEL-PC" duration="00:00:02.1302771" startTime="2012-06-10T17:02:38.2980000+08:00" endTime="2012-06-10T17:02:40.4360000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e0a2ca1-c10a-425a-b4f9-8f9d9c336a5a">
+    </UnitTestResult>
+    <UnitTestResult executionId="96756837-2ef3-4d46-9d52-dcb3e2d150f3" testId="0fbef700-03bb-52e7-7fa3-3fe06f980c30" testName="Test_Live_NH_Language_Country" computerName="MICHAEL-PC" duration="00:00:00.7829517" startTime="2012-06-10T17:02:40.4390000+08:00" endTime="2012-06-10T17:02:41.2290000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96756837-2ef3-4d46-9d52-dcb3e2d150f3">
+    </UnitTestResult>
+    <UnitTestResult executionId="661610a3-8680-4400-9b9f-61534e3d82d5" testId="1d6a957a-0b27-6297-ca14-3404fd6b8366" testName="Test_Live_Nh_Language_Country_Poco_to_Dto" computerName="MICHAEL-PC" duration="00:00:00.0171830" startTime="2012-06-10T17:02:41.2310000+08:00" endTime="2012-06-10T17:02:41.2560000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="661610a3-8680-4400-9b9f-61534e3d82d5">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Live_Nh_Language_Country_Poco_to_Dto threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Live_Nh_Language_Country_Poco_to_Dto() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 567
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="39ad6469-a8d1-418e-9013-798d81521b2b" testId="4794794d-9fdd-7db6-103b-b405f98bc982" testName="Test_Strongly_typed_mapper_for_Dto_To_Poco" computerName="MICHAEL-PC" duration="00:00:00.0041293" startTime="2012-06-10T17:02:41.2590000+08:00" endTime="2012-06-10T17:02:41.2730000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="39ad6469-a8d1-418e-9013-798d81521b2b">
+    </UnitTestResult>
+    <UnitTestResult executionId="0d791d7e-fc9f-4960-a0b0-664421e6975a" testId="504ce877-e083-b887-b5e8-a14e1c067a2c" testName="Test_Live_NH_Poco_To_Dto" computerName="MICHAEL-PC" duration="00:00:00.0149960" startTime="2012-06-10T17:02:41.2760000+08:00" endTime="2012-06-10T17:02:41.3070000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d791d7e-fc9f-4960-a0b0-664421e6975a">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Live_NH_Poco_To_Dto threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Live_NH_Poco_To_Dto() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 167
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2ae79000-3679-4d33-a256-03f5436025ff" testId="54a8c533-17fa-1b67-b0e4-80569fa46822" testName="Test_Strongly_typed_Mapper_for_Poco_to_Dto" computerName="MICHAEL-PC" duration="00:00:00.0050837" startTime="2012-06-10T17:02:41.3100000+08:00" endTime="2012-06-10T17:02:41.3250000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ae79000-3679-4d33-a256-03f5436025ff">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Strongly_typed_Mapper_for_Poco_to_Dto threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Strongly_typed_Mapper_for_Poco_to_Dto() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 372
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b0435d82-ece8-42d2-99f2-274ccb47bc85" testId="5cba631f-b350-c9fc-48ed-945bf7159979" testName="Test_Dto_To_Live_Nh_Poco" computerName="MICHAEL-PC" duration="00:00:00.0165855" startTime="2012-06-10T17:02:41.3280000+08:00" endTime="2012-06-10T17:02:41.3520000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0435d82-ece8-42d2-99f2-274ccb47bc85">
+    </UnitTestResult>
+    <UnitTestResult executionId="74c8d8a1-a7bd-47ca-9f38-94bd972f5990" testId="6032bfcb-ead9-6f8b-54e1-1894c4fa55ab" testName="Test_Live_Ef_Language_Country_Poco_to_Dto" computerName="MICHAEL-PC" duration="00:00:00.0874321" startTime="2012-06-10T17:02:41.3560000+08:00" endTime="2012-06-10T17:02:41.4480000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74c8d8a1-a7bd-47ca-9f38-94bd972f5990">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Live_Ef_Language_Country_Poco_to_Dto threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Live_Ef_Language_Country_Poco_to_Dto() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 528
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="22dee3cd-418b-4fd4-8b1c-d3069164e03d" testId="6a9476f7-86f9-8504-595a-f2251f9be6bf" testName="Test_Dto_To_Poco" computerName="MICHAEL-PC" duration="00:00:00.0033025" startTime="2012-06-10T17:02:41.4500000+08:00" endTime="2012-06-10T17:02:41.4650000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="22dee3cd-418b-4fd4-8b1c-d3069164e03d">
+    </UnitTestResult>
+    <UnitTestResult executionId="7884e1ec-21bd-428f-bdfa-85a64ec2b3e6" testId="71c37fa7-eb5a-3ce4-535c-1616d2d1517e" testName="Test_nested_Live_Ef_Dto_to_Poco" computerName="MICHAEL-PC" duration="00:00:00.0660897" startTime="2012-06-10T17:02:41.4680000+08:00" endTime="2012-06-10T17:02:41.5380000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7884e1ec-21bd-428f-bdfa-85a64ec2b3e6">
+    </UnitTestResult>
+    <UnitTestResult executionId="34be9562-f627-4a0d-a5bc-6db322fd5bc9" testId="868724cd-ee1a-d8c7-130f-18d9892c04d2" testName="Test_Live_Ef_Language_Country" computerName="MICHAEL-PC" duration="00:00:00.0138895" startTime="2012-06-10T17:02:41.5420000+08:00" endTime="2012-06-10T17:02:41.5590000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34be9562-f627-4a0d-a5bc-6db322fd5bc9">
+    </UnitTestResult>
+    <UnitTestResult executionId="802116bd-c3da-4f27-bb7e-1e2355f4979f" testId="a7d2cb75-a038-21d3-5a24-3d064aab4870" testName="Test_nested" computerName="MICHAEL-PC" duration="00:00:00.0005357" startTime="2012-06-10T17:02:41.5630000+08:00" endTime="2012-06-10T17:02:41.5670000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="802116bd-c3da-4f27-bb7e-1e2355f4979f">
+    </UnitTestResult>
+    <UnitTestResult executionId="933963aa-0651-42ed-947b-f2dbc9c77d5b" testId="c28ecea9-2bbb-9a85-15e6-7e296cbbdb71" testName="Test_Corner_Cases_on_Live_Ef_to_Poco" computerName="MICHAEL-PC" duration="00:00:00.0950379" startTime="2012-06-10T17:02:41.5690000+08:00" endTime="2012-06-10T17:02:41.6690000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="933963aa-0651-42ed-947b-f2dbc9c77d5b">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Corner_Cases_on_Live_Ef_to_Poco threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Corner_Cases_on_Live_Ef_to_Poco() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 835
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b85c02e9-ee43-4021-a80b-6fa96a420a1b" testId="e39ac0b9-7f42-f290-17ef-e8b3037f8a38" testName="Test_Poco_To_Dto" computerName="MICHAEL-PC" duration="00:00:00.0040462" startTime="2012-06-10T17:02:41.6720000+08:00" endTime="2012-06-10T17:02:41.6880000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b85c02e9-ee43-4021-a80b-6fa96a420a1b">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Poco_To_Dto threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Poco_To_Dto() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 61
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="47c98883-9e25-4a52-b951-67f6a6e62b3f" testId="e79dc9e1-ed55-95b0-8016-10df46076ea1" testName="Test_Live_EF_Poco_To_Dto" computerName="MICHAEL-PC" duration="00:00:00.1092394" startTime="2012-06-10T17:02:41.6910000+08:00" endTime="2012-06-10T17:02:41.8100000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="47c98883-9e25-4a52-b951-67f6a6e62b3f">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestDitTO.Tests.Test_Live_EF_Poco_To_Dto threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Ienablemuch.DitTO.Common.Create(String name, Type[] types) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 576
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto, Type sourceType) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 471
+   at Ienablemuch.DitTO.Helper.ToDto(Object poco, Object dto) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 306
+   at Ienablemuch.DitTO.Mapper.ToDto[TPoco,TDto](TPoco poco) in C:\Users\Michael\_CODE\DitTO\DitTO\ObjectMapper.cs:line 546
+   at TestDitTO.Tests.Test_Live_EF_Poco_To_Dto() in C:\Users\Michael\_CODE\DitTO\TestDitTO\Tests.cs:line 210
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -320,7 +320,7 @@ namespace TestDitTO
 
 
             var repoOrder = new EF.Repository<Order>(db);
-            repoOrder.Merge(oPoco, null);
+            repoOrder.Merge(oPoco);
 
 
             
@@ -719,7 +719,7 @@ namespace TestDitTO
 
             
             var repo = new EF.Repository<Order>(db);
-            repo.Merge(oPoco, null);
+            repo.Merge(oPoco);
 
             /*db.Set<Order>().Add(oPoco);
             db.SaveChanges();*/
