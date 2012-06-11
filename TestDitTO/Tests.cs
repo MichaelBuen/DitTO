@@ -12,6 +12,7 @@ using NHibernate;
 using NHibernate.Linq;
 using Ienablemuch.DitTO.EntityFrameworkStubAssigner;
 
+using NH = Ienablemuch.ToTheEfnhX.NHibernate;
 using EF = Ienablemuch.ToTheEfnhX.EntityFramework;
 
 namespace TestDitTO
@@ -263,19 +264,20 @@ namespace TestDitTO
             // Act
             Order oPoco = Mapper.ToPoco<OrderDto,Order>(oDto);
 
-            Order o;
+
+            // Assert
             using (ISession s = NhDbMapper.GetSession(connectionString))
             {
-                o = s.Merge(oPoco);                     
-                s.Merge(oPoco);
-                    
-                
-                
+                var db = new NH.Repository<Order>(s);
+                db.Save(oPoco);                
+
+                Assert.AreNotEqual(0, oPoco.OrderId);
+                Assert.AreEqual(3, db.Get(oPoco.OrderId).OrderLines.Count);
             }
 
 
-            // Assert
-            Assert.AreNotEqual(0, o.OrderId);
+            
+            
         }
 
 
@@ -314,20 +316,32 @@ namespace TestDitTO
             Order oPoco = Mapper.ToPoco<OrderDto,Order>(oDto);
 
             var db = new EfDbMapper(connectionString);
-            // EfPoco.AssignStub<OrderDto>(oPoco, db);
+                        
+            // can use this too:
+            /*            
+            db.AssignStub(oPoco);
+            db.Set<Order>().Add(oPoco);
+            db.SaveChanges();
+            */
+
             
             db.AssignStub(oPoco);
-
-
+            
             var repoOrder = new EF.Repository<Order>(db);
-            repoOrder.Merge(oPoco);
+            repoOrder.Save(oPoco);
+            Assert.AreNotEqual("", oPoco.Customer.CustomerName);
+            Assert.IsNotNull(oPoco.Customer);
 
 
+            // oPoco = repoOrder.Get(oPoco.OrderId);
+            repoOrder.Save(oPoco);
             
             
 
             // Assert
             Assert.AreNotEqual(0, oPoco.OrderId);
+            Assert.IsNotNull(oPoco.Customer);
+            Assert.AreNotEqual("", oPoco.Customer.CustomerName);
         }
 
 

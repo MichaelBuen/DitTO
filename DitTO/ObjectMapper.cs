@@ -12,9 +12,9 @@ namespace Ienablemuch.DitTO
 
     class CollectionMapping
     {
-        public string CollectionDto { get; set; }
-        public string[] CollectionPoco { get; set; }
-        public string ReferencingObject { get; set; }
+        internal string CollectionDto { get; set; }
+        internal string[] CollectionPoco { get; set; }
+        internal string ReferencingObject { get; set; }
     }
 
     public class PropertyMapping

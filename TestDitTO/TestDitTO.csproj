@@ -46,6 +46,9 @@
     <Reference Include="Ienablemuch.ToTheEfnhX.EntityFramework">
       <HintPath>..\..\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Ienablemuch.ToTheEfnhX.NHibernate">
+      <HintPath>..\..\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.NHibernate\bin\Release\Ienablemuch.ToTheEfnhX.NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>

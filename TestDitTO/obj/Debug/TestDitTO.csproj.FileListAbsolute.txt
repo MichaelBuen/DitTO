@@ -24,3 +24,5 @@ C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Debug\Ienablemuch.ToTheEfnhX.EntityFr
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Debug\SystemLinqDynamic.pdb
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Debug\Ienablemuch.DitTO.EntityFrameworkStubAssigner.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Debug\Ienablemuch.DitTO.EntityFrameworkStubAssigner.pdb
+C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Debug\Ienablemuch.ToTheEfnhX.NHibernate.dll
+C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Debug\Ienablemuch.ToTheEfnhX.NHibernate.pdb
