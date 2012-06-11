@@ -733,7 +733,7 @@ namespace TestDitTO
 
             
             var repo = new EF.Repository<Order>(db);
-            repo.Merge(oPoco);
+            repo.SaveGraph(oPoco);
 
             /*db.Set<Order>().Add(oPoco);
             db.SaveChanges();*/

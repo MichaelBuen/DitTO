@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4613e427-448a-4b4f-b69a-5d54f112a369" name="Michael@MICHAEL-PC 2012-06-11 21:50:45" runUser="Michael-PC\Michael" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="397f7128-1790-459c-a965-4142d4897709">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Michael_MICHAEL-PC 2012-06-11 21_50_45">
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\DitTO\bin\Debug\Ienablemuch.DitTO.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\FluentNHibernate.1.3.0.727\lib\FluentNHibernate.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.NHibernate\bin\Release\Ienablemuch.ToTheEfnhX.NHibernate.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\SystemLinqDynamic.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Debug\TheEntities.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\Ienablemuch.ToTheEfnhX\Ienablemuch.ToTheEfnhX.EntityFramework\bin\Release\Ienablemuch.ToTheEfnhX.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\packages\NHibernate.3.3.0.4000\lib\Net35\NHibernate.dll" />
+      <DeploymentItem filename="C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.EntityFrameworkStubMaker\bin\Debug\Ienablemuch.DitTO.EntityFrameworkStubAssigner.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-11T21:50:45.6380000+08:00" queuing="2012-06-11T21:50:45.6910000+08:00" start="2012-06-11T21:50:45.7150000+08:00" finish="2012-06-11T21:50:51.0100000+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="18" executed="18" passed="18" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Test_Dto_To_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="6a9476f7-86f9-8504-595a-f2251f9be6bf">
+      <Execution id="ddcb4735-a07b-4462-b615-8b1e2f6f3ae4" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Strongly_typed_mapper_for_Dto_To_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="4794794d-9fdd-7db6-103b-b405f98bc982">
+      <Execution id="14e0ad06-f8c5-43c5-becc-9a0603e9d33b" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Strongly_typed_mapper_for_Dto_To_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Ef_Language_Country" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="868724cd-ee1a-d8c7-130f-18d9892c04d2">
+      <Execution id="f3e61472-1ace-4ca1-927f-1a30036f9a2a" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_Language_Country" />
+    </UnitTest>
+    <UnitTest name="Test_Mapping_Corner_Cases" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="03a43309-9383-a197-5846-15498a856f10">
+      <Execution id="7e4403d3-2c1e-48a1-9196-fa22c3a9f68b" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Mapping_Corner_Cases" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="0ba62294-c0c5-2415-33e0-915234705ac7">
+      <Execution id="795db23e-d006-4a92-bd99-5a74d616610e" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry" />
+    </UnitTest>
+    <UnitTest name="Test_Live_EF_Poco_To_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="e79dc9e1-ed55-95b0-8016-10df46076ea1">
+      <Execution id="4d8ff67b-dd3d-479b-b9a7-d0ee5e6c22ef" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_EF_Poco_To_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_nested_Live_Ef_Dto_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="71c37fa7-eb5a-3ce4-535c-1616d2d1517e">
+      <Execution id="0b75d6f4-5960-4c04-ace8-d4bf1f3284c1" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested_Live_Ef_Dto_to_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Nh_Language_Country_Poco_to_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="1d6a957a-0b27-6297-ca14-3404fd6b8366">
+      <Execution id="38653872-1a42-4e41-860b-ecb4caa05d54" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Nh_Language_Country_Poco_to_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_Dto_To_Live_Nh_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="5cba631f-b350-c9fc-48ed-945bf7159979">
+      <Execution id="33118a6e-2c09-4aa6-9c28-cb129551aa6f" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Live_Nh_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_Ef_Language_Country_Poco_to_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="6032bfcb-ead9-6f8b-54e1-1894c4fa55ab">
+      <Execution id="0575c67b-4acc-4faa-8ec7-e683e2ced338" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_Ef_Language_Country_Poco_to_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_Corner_Cases_on_Live_Ef_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="c28ecea9-2bbb-9a85-15e6-7e296cbbdb71">
+      <Execution id="9c7356ab-ed59-4fab-b60a-334fb63e52b8" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Corner_Cases_on_Live_Ef_to_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Live_NH_Language_Country" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="0fbef700-03bb-52e7-7fa3-3fe06f980c30">
+      <Execution id="cf12d76d-659d-4bb1-9508-ef4cad5f3eb9" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_NH_Language_Country" />
+    </UnitTest>
+    <UnitTest name="Test_Live_NH_Poco_To_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="504ce877-e083-b887-b5e8-a14e1c067a2c">
+      <Execution id="29a6c0cc-3510-41b2-a7e3-14e8d7ae3252" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Live_NH_Poco_To_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_Dto_To_Live_Ef_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="03a77bf7-0d03-4582-234d-239776031b7e">
+      <Execution id="29ef5d08-e9b1-4115-a74a-a287ae2f3110" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Dto_To_Live_Ef_Poco" />
+    </UnitTest>
+    <UnitTest name="Test_Poco_To_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="e39ac0b9-7f42-f290-17ef-e8b3037f8a38">
+      <Execution id="7ea7e948-bd41-4a04-9c91-df5202b4cd83" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Poco_To_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_nested" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="a7d2cb75-a038-21d3-5a24-3d064aab4870">
+      <Execution id="5fa8d680-c4cd-4d3e-b878-633ae8469278" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested" />
+    </UnitTest>
+    <UnitTest name="Test_Strongly_typed_Mapper_for_Poco_to_Dto" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="54a8c533-17fa-1b67-b0e4-80569fa46822">
+      <Execution id="217aa46d-084d-4b6d-9509-01f98d0847d8" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_Strongly_typed_Mapper_for_Poco_to_Dto" />
+    </UnitTest>
+    <UnitTest name="Test_nested_Live_Nh_Dto_to_Poco" storage="c:\users\michael\_code\ditto\testditto\bin\debug\testditto.dll" id="0d685c04-58ea-a98b-23f0-951633879e8a">
+      <Execution id="ebbd0e50-5c28-4db0-a231-d5c58511c7ae" />
+      <TestMethod codeBase="C:/Users/Michael/_CODE/DitTO/TestDitTO/bin/Debug/TestDitTO.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestDitTO.Tests, TestDitTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_nested_Live_Nh_Dto_to_Poco" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="03a43309-9383-a197-5846-15498a856f10" executionId="7e4403d3-2c1e-48a1-9196-fa22c3a9f68b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03a77bf7-0d03-4582-234d-239776031b7e" executionId="29ef5d08-e9b1-4115-a74a-a287ae2f3110" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ba62294-c0c5-2415-33e0-915234705ac7" executionId="795db23e-d006-4a92-bd99-5a74d616610e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d685c04-58ea-a98b-23f0-951633879e8a" executionId="ebbd0e50-5c28-4db0-a231-d5c58511c7ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0fbef700-03bb-52e7-7fa3-3fe06f980c30" executionId="cf12d76d-659d-4bb1-9508-ef4cad5f3eb9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d6a957a-0b27-6297-ca14-3404fd6b8366" executionId="38653872-1a42-4e41-860b-ecb4caa05d54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4794794d-9fdd-7db6-103b-b405f98bc982" executionId="14e0ad06-f8c5-43c5-becc-9a0603e9d33b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="504ce877-e083-b887-b5e8-a14e1c067a2c" executionId="29a6c0cc-3510-41b2-a7e3-14e8d7ae3252" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54a8c533-17fa-1b67-b0e4-80569fa46822" executionId="217aa46d-084d-4b6d-9509-01f98d0847d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5cba631f-b350-c9fc-48ed-945bf7159979" executionId="33118a6e-2c09-4aa6-9c28-cb129551aa6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6032bfcb-ead9-6f8b-54e1-1894c4fa55ab" executionId="0575c67b-4acc-4faa-8ec7-e683e2ced338" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6a9476f7-86f9-8504-595a-f2251f9be6bf" executionId="ddcb4735-a07b-4462-b615-8b1e2f6f3ae4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="71c37fa7-eb5a-3ce4-535c-1616d2d1517e" executionId="0b75d6f4-5960-4c04-ace8-d4bf1f3284c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="868724cd-ee1a-d8c7-130f-18d9892c04d2" executionId="f3e61472-1ace-4ca1-927f-1a30036f9a2a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7d2cb75-a038-21d3-5a24-3d064aab4870" executionId="5fa8d680-c4cd-4d3e-b878-633ae8469278" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c28ecea9-2bbb-9a85-15e6-7e296cbbdb71" executionId="9c7356ab-ed59-4fab-b60a-334fb63e52b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e39ac0b9-7f42-f290-17ef-e8b3037f8a38" executionId="7ea7e948-bd41-4a04-9c91-df5202b4cd83" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e79dc9e1-ed55-95b0-8016-10df46076ea1" executionId="4d8ff67b-dd3d-479b-b9a7-d0ee5e6c22ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7e4403d3-2c1e-48a1-9196-fa22c3a9f68b" testId="03a43309-9383-a197-5846-15498a856f10" testName="Test_Mapping_Corner_Cases" computerName="MICHAEL-PC" duration="00:00:00.0446622" startTime="2012-06-11T21:50:45.7300000+08:00" endTime="2012-06-11T21:50:46.0350000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e4403d3-2c1e-48a1-9196-fa22c3a9f68b">
+    </UnitTestResult>
+    <UnitTestResult executionId="29ef5d08-e9b1-4115-a74a-a287ae2f3110" testId="03a77bf7-0d03-4582-234d-239776031b7e" testName="Test_Dto_To_Live_Ef_Poco" computerName="MICHAEL-PC" duration="00:00:01.2761387" startTime="2012-06-11T21:50:46.0510000+08:00" endTime="2012-06-11T21:50:47.3330000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29ef5d08-e9b1-4115-a74a-a287ae2f3110">
+    </UnitTestResult>
+    <UnitTestResult executionId="795db23e-d006-4a92-bd99-5a74d616610e" testId="0ba62294-c0c5-2415-33e0-915234705ac7" testName="Test_Live_Ef_Language_Country_Poco_to_Dto_NullableCountry" computerName="MICHAEL-PC" duration="00:00:00.0841195" startTime="2012-06-11T21:50:47.3370000+08:00" endTime="2012-06-11T21:50:47.4270000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="795db23e-d006-4a92-bd99-5a74d616610e">
+    </UnitTestResult>
+    <UnitTestResult executionId="ebbd0e50-5c28-4db0-a231-d5c58511c7ae" testId="0d685c04-58ea-a98b-23f0-951633879e8a" testName="Test_nested_Live_Nh_Dto_to_Poco" computerName="MICHAEL-PC" duration="00:00:02.0841413" startTime="2012-06-11T21:50:47.4300000+08:00" endTime="2012-06-11T21:50:49.5190000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ebbd0e50-5c28-4db0-a231-d5c58511c7ae">
+    </UnitTestResult>
+    <UnitTestResult executionId="cf12d76d-659d-4bb1-9508-ef4cad5f3eb9" testId="0fbef700-03bb-52e7-7fa3-3fe06f980c30" testName="Test_Live_NH_Language_Country" computerName="MICHAEL-PC" duration="00:00:00.7887241" startTime="2012-06-11T21:50:49.5240000+08:00" endTime="2012-06-11T21:50:50.3170000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf12d76d-659d-4bb1-9508-ef4cad5f3eb9">
+    </UnitTestResult>
+    <UnitTestResult executionId="38653872-1a42-4e41-860b-ecb4caa05d54" testId="1d6a957a-0b27-6297-ca14-3404fd6b8366" testName="Test_Live_Nh_Language_Country_Poco_to_Dto" computerName="MICHAEL-PC" duration="00:00:00.0447103" startTime="2012-06-11T21:50:50.3220000+08:00" endTime="2012-06-11T21:50:50.3720000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38653872-1a42-4e41-860b-ecb4caa05d54">
+    </UnitTestResult>
+    <UnitTestResult executionId="14e0ad06-f8c5-43c5-becc-9a0603e9d33b" testId="4794794d-9fdd-7db6-103b-b405f98bc982" testName="Test_Strongly_typed_mapper_for_Dto_To_Poco" computerName="MICHAEL-PC" duration="00:00:00.0036630" startTime="2012-06-11T21:50:50.3760000+08:00" endTime="2012-06-11T21:50:50.3830000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14e0ad06-f8c5-43c5-becc-9a0603e9d33b">
+    </UnitTestResult>
+    <UnitTestResult executionId="29a6c0cc-3510-41b2-a7e3-14e8d7ae3252" testId="504ce877-e083-b887-b5e8-a14e1c067a2c" testName="Test_Live_NH_Poco_To_Dto" computerName="MICHAEL-PC" duration="00:00:00.0174500" startTime="2012-06-11T21:50:50.3870000+08:00" endTime="2012-06-11T21:50:50.4090000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29a6c0cc-3510-41b2-a7e3-14e8d7ae3252">
+    </UnitTestResult>
+    <UnitTestResult executionId="217aa46d-084d-4b6d-9509-01f98d0847d8" testId="54a8c533-17fa-1b67-b0e4-80569fa46822" testName="Test_Strongly_typed_Mapper_for_Poco_to_Dto" computerName="MICHAEL-PC" duration="00:00:00.0029870" startTime="2012-06-11T21:50:50.4130000+08:00" endTime="2012-06-11T21:50:50.4200000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="217aa46d-084d-4b6d-9509-01f98d0847d8">
+    </UnitTestResult>
+    <UnitTestResult executionId="33118a6e-2c09-4aa6-9c28-cb129551aa6f" testId="5cba631f-b350-c9fc-48ed-945bf7159979" testName="Test_Dto_To_Live_Nh_Poco" computerName="MICHAEL-PC" duration="00:00:00.0385433" startTime="2012-06-11T21:50:50.4230000+08:00" endTime="2012-06-11T21:50:50.4650000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33118a6e-2c09-4aa6-9c28-cb129551aa6f">
+    </UnitTestResult>
+    <UnitTestResult executionId="0575c67b-4acc-4faa-8ec7-e683e2ced338" testId="6032bfcb-ead9-6f8b-54e1-1894c4fa55ab" testName="Test_Live_Ef_Language_Country_Poco_to_Dto" computerName="MICHAEL-PC" duration="00:00:00.1311386" startTime="2012-06-11T21:50:50.4680000+08:00" endTime="2012-06-11T21:50:50.6030000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0575c67b-4acc-4faa-8ec7-e683e2ced338">
+    </UnitTestResult>
+    <UnitTestResult executionId="ddcb4735-a07b-4462-b615-8b1e2f6f3ae4" testId="6a9476f7-86f9-8504-595a-f2251f9be6bf" testName="Test_Dto_To_Poco" computerName="MICHAEL-PC" duration="00:00:00.0030224" startTime="2012-06-11T21:50:50.6060000+08:00" endTime="2012-06-11T21:50:50.6150000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ddcb4735-a07b-4462-b615-8b1e2f6f3ae4">
+    </UnitTestResult>
+    <UnitTestResult executionId="0b75d6f4-5960-4c04-ace8-d4bf1f3284c1" testId="71c37fa7-eb5a-3ce4-535c-1616d2d1517e" testName="Test_nested_Live_Ef_Dto_to_Poco" computerName="MICHAEL-PC" duration="00:00:00.0728119" startTime="2012-06-11T21:50:50.6180000+08:00" endTime="2012-06-11T21:50:50.6940000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b75d6f4-5960-4c04-ace8-d4bf1f3284c1">
+    </UnitTestResult>
+    <UnitTestResult executionId="f3e61472-1ace-4ca1-927f-1a30036f9a2a" testId="868724cd-ee1a-d8c7-130f-18d9892c04d2" testName="Test_Live_Ef_Language_Country" computerName="MICHAEL-PC" duration="00:00:00.0131486" startTime="2012-06-11T21:50:50.6970000+08:00" endTime="2012-06-11T21:50:50.7150000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f3e61472-1ace-4ca1-927f-1a30036f9a2a">
+    </UnitTestResult>
+    <UnitTestResult executionId="5fa8d680-c4cd-4d3e-b878-633ae8469278" testId="a7d2cb75-a038-21d3-5a24-3d064aab4870" testName="Test_nested" computerName="MICHAEL-PC" duration="00:00:00.0005234" startTime="2012-06-11T21:50:50.7180000+08:00" endTime="2012-06-11T21:50:50.7220000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5fa8d680-c4cd-4d3e-b878-633ae8469278">
+    </UnitTestResult>
+    <UnitTestResult executionId="9c7356ab-ed59-4fab-b60a-334fb63e52b8" testId="c28ecea9-2bbb-9a85-15e6-7e296cbbdb71" testName="Test_Corner_Cases_on_Live_Ef_to_Poco" computerName="MICHAEL-PC" duration="00:00:00.1221942" startTime="2012-06-11T21:50:50.7250000+08:00" endTime="2012-06-11T21:50:50.8510000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c7356ab-ed59-4fab-b60a-334fb63e52b8">
+    </UnitTestResult>
+    <UnitTestResult executionId="7ea7e948-bd41-4a04-9c91-df5202b4cd83" testId="e39ac0b9-7f42-f290-17ef-e8b3037f8a38" testName="Test_Poco_To_Dto" computerName="MICHAEL-PC" duration="00:00:00.0054210" startTime="2012-06-11T21:50:50.8550000+08:00" endTime="2012-06-11T21:50:50.8640000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7ea7e948-bd41-4a04-9c91-df5202b4cd83">
+    </UnitTestResult>
+    <UnitTestResult executionId="4d8ff67b-dd3d-479b-b9a7-d0ee5e6c22ef" testId="e79dc9e1-ed55-95b0-8016-10df46076ea1" testName="Test_Live_EF_Poco_To_Dto" computerName="MICHAEL-PC" duration="00:00:00.1005185" startTime="2012-06-11T21:50:50.8670000+08:00" endTime="2012-06-11T21:50:50.9710000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4d8ff67b-dd3d-479b-b9a7-d0ee5e6c22ef">
+    </UnitTestResult>
+  </Results>
+</TestRun>
