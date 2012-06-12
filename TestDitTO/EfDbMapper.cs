@@ -35,8 +35,15 @@ namespace TestDitTO
             modelBuilder.Entity<Order>().HasKey(x => x.OrderId);
 
             // modelBuilder.Entity<Question>().Property(x => x.RowVersion).IsRowVersion();
-            // modelBuilder.Entity<Order>().HasMany(x => x.OrderLines).WithRequired(x => x.Order).Map(x => x.MapKey("Order_OrderId"));
-            // modelBuilder.Entity<OrderLine>().HasMany(x => x.Comments).WithRequired(x => x.OrderLine).Map(x => x.MapKey("OrderLine_OrderLineId"));
+
+
+
+            
+            modelBuilder.Entity<Order>().HasMany(x => x.OrderLines).WithRequired(x => x.Order).Map(x => x.MapKey("Order_OrderId"));                        
+            modelBuilder.Entity<OrderLine>().HasMany(x => x.Comments).WithRequired(x => x.OrderLine).Map(x => x.MapKey("OrderLine_OrderLineId"));
+            
+
+
             //modelBuilder.Entity<OrderLine>().HasOptional(x => x.Freebie).WithOptionalPrincipal().Map(y => y.MapKey("Freebie_ProductId"));
             //modelBuilder.Entity<OrderLine>().HasRequired(x => x.Product).WithRequiredPrincipal().Map(y => y.MapKey("Product_ProductId"));
             // modelBuilder.Entity<OrderLine>().Property(x => x.Freebie).HasColumnName("Product_FreebieId");

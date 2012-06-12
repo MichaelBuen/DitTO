@@ -199,7 +199,7 @@ namespace TestDitTO
             
 
             // Act
-            Order o = db.Set<Order>()
+            Order o = db.Set<Order>().AsNoTracking()
                 .Include("OrderLines")
                     .Include("OrderLines.Product")
                 .Include("OrderLines.Comments")
@@ -756,7 +756,7 @@ namespace TestDitTO
             // the customer name from DTO would not cascade to POCO. referential integrity is maintained                
             Assert.AreEqual("Michael", oPoco.Customer.CustomerName);                
             Assert.AreEqual("Philippines", oPoco.Customer.Country.CountryName);
-            Assert.AreEqual(1940, oPoco.Customer.MemberYear);
+            Assert.AreEqual(1976, oPoco.Customer.MemberYear);
             Assert.IsNotNull(oPoco.Customer.Address1);
             
 
@@ -871,6 +871,47 @@ namespace TestDitTO
             Assert.AreEqual(1976, dto.MemberYear);
             Assert.AreNotEqual(dx, dto.OrderDate);
             Assert.AreEqual(dx, dto.DummyDate);
+        }
+
+
+        [TestMethod]
+        public void Test_nested_Live_Ef_SaveGraph_Two_Times()
+        {
+            var date = new DateTime(1976, 11, 05);
+
+            var db = new EfDbMapper(connectionString);
+            var repo = new EF.Repository<Order>(db);
+            Order oPoco = repo.Get(1);
+            Assert.AreEqual(date, oPoco.OrderDate);
+
+            OrderDto oDto = Mapper.ToDto<Order, OrderDto>(oPoco);
+
+            // OrderDate is not mapped to OrderDate, it is mapped to DummyDate,
+            // hence should not be equal
+            Assert.AreNotEqual(date, oDto.OrderDate);
+
+            Order pPoco = Mapper.ToPoco<OrderDto, Order>(oDto);
+            pPoco.OrderDate = date;
+            Assert.AreEqual(date, pPoco.OrderDate);
+
+            db.AssignStub(pPoco);
+            Assert.AreEqual(date, pPoco.OrderDate);
+
+            int count = pPoco.OrderLines.Count;
+            // pPoco.OrderLines.RemoveAt(0);
+
+            /*db.Entry(pPoco).State = System.Data.EntityState.Modified;
+            db.SaveChanges();*/
+            
+
+            repo.SaveGraph(pPoco);
+
+            Order qPoco = repo.Get(1);
+
+            // Assert.AreNotEqual(count, qPoco.OrderLines.Count);
+
+            
+
         }
 
 
