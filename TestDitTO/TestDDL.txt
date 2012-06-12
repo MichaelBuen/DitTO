@@ -1,4 +1,4 @@
-﻿use ObjectGraphDitTO;
+﻿use ServiceStackNtierDemo;
 
 drop table Comment;
 drop table OrderLine;
@@ -50,8 +50,8 @@ create table "Order"
 OrderId int identity(1,1) not null primary key,
 Customer_CustomerId int not null references Customer(CustomerId),
 OrderDate date not null,
-OrderDescription varchar(100) not null
-
+OrderDescription varchar(100) not null,
+RowVersion rowversion not null
 );
 
 create table Product
@@ -95,7 +95,7 @@ insert into LanguageAssocCountry(AssocLanguageId,AssocCountryId) values
 (3,2);
 
 insert into Customer(CustomerName,Country_CountryId, Address1,MemberYear) values
-('Michael',1,'Makati',1940);
+('Michael',1,'Makati',1976);
 
 insert into Customer(CustomerName,Country_CountryId, Address1,MemberYear) values
 ('Lennon',null,'Makati',1940);
