@@ -8,9 +8,9 @@ using System.Data.Objects;
 using System.Data;
 using System.Collections;
 
-namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
+namespace Ienablemuch.DitTO.EntityFramework.StubAssigner
 {
-    public static class EfPoco
+    public static class StubHelper
     {
         public static void AssignStub(this DbContext db, object poco) 
         {

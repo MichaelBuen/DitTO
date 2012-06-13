@@ -84,9 +84,9 @@
       <Project>{D4B4F2E3-EA4D-4B06-971B-7805300280B7}</Project>
       <Name>Ienablemuch.DitTO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ienablemuch.DitTO.EntityFrameworkStubMaker\Ienablemuch.DitTO.EntityFrameworkStubAssigner.csproj">
+    <ProjectReference Include="..\Ienablemuch.DitTO.EntityFramework.StubAssigner\Ienablemuch.DitTO.EntityFramework.StubAssigner.csproj">
       <Project>{BC109B8D-95AD-42DD-81BF-098FE8B000FC}</Project>
-      <Name>Ienablemuch.DitTO.EntityFrameworkStubAssigner</Name>
+      <Name>Ienablemuch.DitTO.EntityFramework.StubAssigner</Name>
     </ProjectReference>
     <ProjectReference Include="..\TheEntities\TheEntities.csproj">
       <Project>{6720F372-C265-4832-9B38-113DACA36ACB}</Project>

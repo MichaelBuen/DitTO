@@ -8,7 +8,7 @@
     <ProjectGuid>{BC109B8D-95AD-42DD-81BF-098FE8B000FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ienablemuch.DitTO.EntityFrameworkStubAssigner</RootNamespace>
+    <RootNamespace>Ienablemuch.DitTO.EntityFramework.StubAssigner</RootNamespace>
     <AssemblyName>Ienablemuch.DitTO.EntityFrameworkStubAssigner</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

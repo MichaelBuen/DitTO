@@ -10,7 +10,7 @@ using Ienablemuch.DitTO;
 
 using NHibernate;
 using NHibernate.Linq;
-using Ienablemuch.DitTO.EntityFrameworkStubAssigner;
+using Ienablemuch.DitTO.EntityFramework.StubAssigner;
 
 using NH = Ienablemuch.ToTheEfnhX.NHibernate;
 using EF = Ienablemuch.ToTheEfnhX.EntityFramework;
