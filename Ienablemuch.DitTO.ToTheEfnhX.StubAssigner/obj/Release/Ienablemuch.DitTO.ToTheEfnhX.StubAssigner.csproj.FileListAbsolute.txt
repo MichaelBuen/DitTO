@@ -2,12 +2,10 @@ C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Relea
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner.dll
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner.pdb
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\EntityFramework.dll
-C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.EntityFrameworkStubAssigner.dll
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.ToTheEfnhX.dll
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.dll
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\SystemLinqDynamic.dll
-C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.EntityFrameworkStubAssigner.pdb
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\EntityFramework.xml
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.ToTheEfnhX.pdb
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.pdb
@@ -16,3 +14,5 @@ C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Relea
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\obj\Release\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner.dll
 C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\obj\Release\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner.pdb
+C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.EntityFramework.StubAssigner.dll
+C:\Users\Michael\_CODE\DitTO\Ienablemuch.DitTO.ToTheEfnhX.StubAssigner\bin\Release\Ienablemuch.DitTO.EntityFramework.StubAssigner.pdb

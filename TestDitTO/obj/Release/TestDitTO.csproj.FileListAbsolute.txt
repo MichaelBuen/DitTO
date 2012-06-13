@@ -4,7 +4,6 @@ C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\TestDitTO.pdb
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\EntityFramework.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\FluentNHibernate.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.DitTO.dll
-C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.DitTO.EntityFrameworkStubAssigner.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.ToTheEfnhX.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.ToTheEfnhX.EntityFramework.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.ToTheEfnhX.NHibernate.dll
@@ -13,7 +12,6 @@ C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\NHibernate.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\SystemLinqDynamic.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\TheEntities.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.DitTO.pdb
-C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.DitTO.EntityFrameworkStubAssigner.pdb
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\TheEntities.pdb
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\EntityFramework.xml
 C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\FluentNHibernate.xml
@@ -26,3 +24,5 @@ C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\SystemLinqDynamic.pdb
 C:\Users\Michael\_CODE\DitTO\TestDitTO\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Michael\_CODE\DitTO\TestDitTO\obj\Release\TestDitTO.dll
 C:\Users\Michael\_CODE\DitTO\TestDitTO\obj\Release\TestDitTO.pdb
+C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.DitTO.EntityFramework.StubAssigner.dll
+C:\Users\Michael\_CODE\DitTO\TestDitTO\bin\Release\Ienablemuch.DitTO.EntityFramework.StubAssigner.pdb
