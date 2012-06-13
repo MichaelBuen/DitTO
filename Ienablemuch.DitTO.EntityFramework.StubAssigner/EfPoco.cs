@@ -42,6 +42,12 @@ namespace Ienablemuch.DitTO.EntityFramework.StubAssigner
                 else
                 {
                     // foreign key is null'd
+
+                    // nullable foreign key association
+                    // http://www.codetuning.net/blog/post/Understanding-Entity-Framework-Associations.aspx
+
+                    var dummy = pocoForeign.GetValue(poco, null); // work-around
+
                     pocoForeign.SetValue(poco, val, null);
                 }
                 

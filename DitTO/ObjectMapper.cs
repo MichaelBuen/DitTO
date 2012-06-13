@@ -461,15 +461,21 @@ namespace Ienablemuch.DitTO
                     // if property is existing
                     if (propDto != null)
                     {
-
-                        if (!isCollection && !isOverriden)
-                            propDto.SetValue(dto, val, null);
+                        // isCollection just check on mapping
+                        if (!isOverriden && !isCollection)
+                        {
+                            // make sure it's scalar
+                            if (!(propDto.PropertyType.IsGenericType && typeof(IEnumerable).IsAssignableFrom(pi.PropertyType)))
+                            {
+                                propDto.SetValue(dto, val, null);
+                            }
+                        }
                         else if (val != null)
                         {
                             IList srcCollections = ((IList)val);
 
-                            Type elemType = propDto.PropertyType.GetGenericArguments()[0];                            
-                            IList clonedList = (IList) Activator.CreateInstance(typeof(System.Collections.Generic.List<>).MakeGenericType(elemType));
+                            Type elemType = propDto.PropertyType.GetGenericArguments()[0];
+                            IList clonedList = (IList)Activator.CreateInstance(typeof(System.Collections.Generic.List<>).MakeGenericType(elemType));
 
                             foreach (object item in srcCollections)
                             {
