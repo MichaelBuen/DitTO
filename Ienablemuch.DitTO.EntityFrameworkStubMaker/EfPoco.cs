@@ -30,16 +30,20 @@ namespace Ienablemuch.DitTO.EntityFrameworkStubAssigner
 
 
                 object val = pocoForeign.GetValue(poco, null);
-                // foreign key nullable
-                if (val == null) continue;
+                
+                if (val != null)
+                {
+                    PropertyInfo pocoForeignId = pocoForeign.PropertyType.GetProperty(pm.PropertyPoco.Last(), BindingFlags.Public | BindingFlags.Instance);
 
+                    object id = pocoForeignId.GetValue(val, null);
 
-
-                PropertyInfo pocoForeignId = pocoForeign.PropertyType.GetProperty(pm.PropertyPoco.Last(), BindingFlags.Public | BindingFlags.Instance);
-
-                object id = pocoForeignId.GetValue(val, null);
-
-                pocoForeign.SetValue(poco, LoadStub(pocoForeign.PropertyType, pm.PropertyPoco.Last(), id, db), null);
+                    pocoForeign.SetValue(poco, LoadStub(pocoForeign.PropertyType, pm.PropertyPoco.Last(), id, db), null);
+                }
+                else
+                {
+                    // foreign key is null'd
+                    pocoForeign.SetValue(poco, val, null);
+                }
                 
             }
 

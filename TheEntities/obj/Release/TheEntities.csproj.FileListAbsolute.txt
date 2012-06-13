@@ -1,0 +1,5 @@
+C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Release\TheEntities.dll
+C:\Users\Michael\_CODE\DitTO\TheEntities\bin\Release\TheEntities.pdb
+C:\Users\Michael\_CODE\DitTO\TheEntities\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Michael\_CODE\DitTO\TheEntities\obj\Release\TheEntities.dll
+C:\Users\Michael\_CODE\DitTO\TheEntities\obj\Release\TheEntities.pdb
