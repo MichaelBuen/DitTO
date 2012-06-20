@@ -137,7 +137,14 @@ namespace Ienablemuch.DitTO
 
     internal static class Helper
     {
+
         internal static string GetExpressionText(this LambdaExpression m)
+        {
+            return new PropertyPathVisitor().GetPropertyPath(m);            
+        }
+
+
+        static string xGetExpressionText(this LambdaExpression m)
         {
 
             string s = m.Body.ToString();
@@ -145,10 +152,17 @@ namespace Ienablemuch.DitTO
             return expressionOnly;
 
             // While we haven't yet grok the ASP.NET MVC's GetExpressionText to transform LambdaExpression to string only, 
-            // the above will suffice for the meantime
+            // m.Body.ToString() will suffice for the meantime
         }
 
         internal static string[] GetExpressionArray(this LambdaExpression m)
+        {
+
+            string s = GetExpressionText(m);
+            return s.Split('.').ToArray();
+        }
+
+        static string[] xGetExpressionArray(this LambdaExpression m)
         {
 
             string s = m.Body.ToString();
@@ -156,7 +170,7 @@ namespace Ienablemuch.DitTO
            
 
             // While we haven't yet grok the ASP.NET MVC's GetExpressionText to transform LambdaExpression to string only, 
-            // the above will suffice for the meantime
+            // m.Body.ToString() will suffice for the meantime
         }
 
 
@@ -496,6 +510,52 @@ namespace Ienablemuch.DitTO
 
         internal static IDictionary<Type, MapSetting> maps = new Dictionary<Type, MapSetting>();
 
+
+        // PropertyPathVisitor sourced from: http://www.thomaslevesque.com/2010/10/03/entity-framework-using-include-with-lambda-expressions/
+        class PropertyPathVisitor : ExpressionVisitor
+        {
+            private Stack<string> _stack;
+
+            public string GetPropertyPath(Expression expression)
+            {
+                _stack = new Stack<string>();
+                Visit(expression);
+                return _stack
+                    .Aggregate(
+                        new StringBuilder(),
+                        (sb, name) =>
+                            (sb.Length > 0 ? sb.Append(".") : sb).Append(name))
+                    .ToString();
+            }
+
+            protected override Expression VisitMember(MemberExpression expression)
+            {
+                if (_stack != null)
+                    _stack.Push(expression.Member.Name);
+                return base.VisitMember(expression);
+            }
+
+            protected override Expression VisitMethodCall(MethodCallExpression expression)
+            {
+                if (IsLinqOperator(expression.Method))
+                {
+                    for (int i = 1; i < expression.Arguments.Count; i++)
+                    {
+                        Visit(expression.Arguments[i]);
+                    }
+                    Visit(expression.Arguments[0]);
+                    return expression;
+                }
+                return base.VisitMethodCall(expression);
+            }
+
+            private static bool IsLinqOperator(MethodInfo method)
+            {
+                if (method.DeclaringType != typeof(Queryable) && method.DeclaringType != typeof(Enumerable))
+                    return false;
+                return Attribute.GetCustomAttribute(method, typeof(System.Runtime.CompilerServices.ExtensionAttribute)) != null;
+            }
+        }
 
     }
 
